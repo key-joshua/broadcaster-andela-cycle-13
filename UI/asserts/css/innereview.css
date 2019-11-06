@@ -1,0 +1,748 @@
+body{
+	font-family: Arial, Helvetica, sans-serif;
+	padding: 0;
+	margin: 0;
+	min-height: 100%;
+	background: #35424a;
+}
+
+
+
+.bgd{
+	height: 100%;
+	bottom: 0px;
+	background: url(../img/backgroundb.png);
+	background-repeat: no-repeat;
+	background-size: cover;
+}
+
+/*Header Stuff*/
+header{
+	background: #35424a;
+	color: #ffffff;
+	padding-top: 10px;
+	min-height: 30px;
+	border-bottom: #e8491d 3px solid;
+}
+
+
+header #branding{
+	font-size: 15px;
+	float: left;
+}
+
+header #branding h1{
+	margin: 0;
+}
+
+.fa{
+	background-color: #0000;
+	color: #e8491d;
+	margin-right: 08px;
+}
+
+
+header a{
+	color: #ffffff;
+	text-decoration: none;
+	text-transform: uppercase;
+	font-size: 12px;
+}
+
+header li{
+	float: left;
+	display: inline;
+	margin-top: 10px;
+	padding: 0 20px 0 20px;
+} 
+
+header nav .menu{
+
+	display: none;
+	font-size: 30px;
+	margin-left: 150px;
+	color: #e8491d;
+	margin-top: 00px;
+}
+
+header nav{
+	float: right;
+	margin-top: 0px;
+	margin-bottom: 10px;
+}
+
+
+#name{
+	font-size: 08px;
+}
+
+
+.highlight, header .current a{
+	color: #dd5833;
+	font-weight:bold;
+}
+
+header a:hover{
+	padding: 10px;
+	color: #e8491d;
+	background-color: rgba(0, 0, 0, 0.5);
+	border-radius: 10px 10px 10px 10px;
+}
+
+
+/*Gobally Stuff*/
+.container{
+	min-height: 100%;
+	width: 95%;
+	margin: auto;
+	overflow: hidden;
+}
+
+ul{
+	margin: 0;
+	padding: 0;
+}
+
+
+/*############################################################################################   review page */
+
+header nav ul{
+	display: none;
+}
+
+.pro{
+	border-radius: 100px;
+	margin-top: 0px;
+	height: 35px;
+	width: 35px;
+	font-size: 30px;
+	margin-top: 15px;
+}
+
+.active{
+	display: block;
+}
+
+
+.ul-li-a{
+	margin-top: 25px;
+}
+
+.dark{
+	font-size: 13px;
+}
+
+#boxes{
+	margin-top: 0px;
+	opacity: 0.8;
+	background-color: white;
+}
+
+#boxes .box0{
+	width: 60%;
+	float: left;
+	padding: 10px;
+	color: #35424a;
+	font-size: 12px;
+	margin-top: 50px;
+}
+
+.file{
+	width:80%;
+	height:320px;
+}
+.file1{
+	width:70%;
+	height:250px;
+}
+
+#map{
+	float: right; 
+	height: 150px; 
+	width: 250px; 
+	background: gray;
+}
+
+#boxes .box0 .bio{
+	font-size: 15px;
+	margin-top: 15px;
+	padding: 05px;
+	text-align: center;
+	background-color: rgba(0, 0, 0, 0.2);
+	border-radius: 10px 10px 10px 10px;
+}
+
+#boxes .box0 .bt{
+	font-size: 15px;
+	margin-top: 15px;
+	padding: 05px;
+	text-align: center;
+}
+
+
+#boxes .box0 .bio h2{
+	width: 100%;
+	text-align: center;
+	color: #35424a;
+	font-size: 15px;
+}
+
+
+#boxes .box0 .bio h4{
+	width: 100%;
+	text-align: center;
+	color: #35424a;
+	font-size: 15px;
+}
+
+#boxes .box0 .bio p{
+	width: 100%;
+	text-align: left;
+	color: #35424a;
+	font-size: 12px;
+}
+.button_cmnt{
+	color: white;
+	background-color: #0d305a;
+	height: 30px;
+	margin-top: 10px;
+	padding-left: 15px;
+	padding-right: 15px;
+	border-radius: 05px 05px 05px 05px;
+}
+.button_edits{
+	height: 30px;
+	color: #ffffff;
+	background: #1e9901;
+	margin-top: 10px;
+	padding-left: 15px;
+	padding-right: 15px;
+	border-radius: 05px 05px 05px 05px;
+}
+
+.button_post{
+	height: 30px;
+	color: #ffffff;
+	background: #0d305a;
+	margin-top: 10px;
+	padding-left: 15px;
+	padding-right: 15px;
+	border-radius: 05px 05px 05px 05px;
+}
+
+
+.button_comment{
+	height: 30px;
+	color: #ffffff;
+	background: #1e9901;
+	margin-top: 10px;
+	padding-left: 15px;
+	padding-right: 15px;
+	border-radius: 05px 05px 05px 05px;
+}
+
+#ctd_cmnt{
+	background-color: rgba(0, 0, 0, 0.2); 
+	padding: 05px;  
+	border-radius: 05px 05px 05px 05px;
+}
+
+
+#ctd_cmnt h3{
+	color: #e8491d;
+}
+
+#usr_cmnt{
+	background: gray; 
+	padding: 05px; 
+	border-radius: 05px 05px 05px 05px; 
+	font-size: 15px; margin-top: 10px;
+}
+
+#contento{
+	display: none;
+	background: gray; 
+	padding: 05px; 
+	border-radius: 05px 05px 05px 05px; 
+	font-size: 15px; margin-top: 10px;
+}
+
+#boxes .box0 .button_delete{
+	height: 30px;
+	color: #ffffff;
+	background: #a90918;
+	margin-top: 10px;
+	padding-left: 15px;
+	padding-right: 15px;
+	border-radius: 05px 05px 05px 05px;
+}
+
+/*########################################################################################################*/
+/*edit red flag and intervetion*/
+
+
+.behind{
+	padding: 30px;
+	margin-top: 30px;
+	margin-bottom: 30px;
+	color: #ffffff;
+	background: #35424a;
+	border-radius: 15px 15px 15px 15px;
+}
+
+#boxes .box2{
+
+	font-size: 12px;
+	float: right;
+	margin-top: 35px;
+	margin-bottom: 50px;
+	width: 30%;
+	padding: 10px;
+}
+
+
+.box2 h3{
+  width: 100%;
+}
+
+aside#created{
+	display: none;
+}
+
+aside#create{
+	display: none;
+}
+
+aside .forms input{
+	font-size: 11px;
+	text-align: left;
+	margin-top: 10px;
+	width: 95%;
+	height: 20px;
+}
+
+aside#create .forms textarea{
+	text-align: left;
+	margin-top: 10px;
+	width: 95%;
+	height: 100px;
+}
+
+aside .forms textarea{
+	text-align: left;
+	margin-top: 10px;
+	width: 95%;
+	height: 100px;
+}
+
+aside .forms select{
+	text-align: left;
+	margin-top: 10px;
+	width: 96%;
+}
+
+
+aside h3{
+	font-size: 15px;
+	color: #e8491d;
+	text-align: center;
+}
+
+
+aside .forms h5{
+	text-align: center;
+	margin-top: 30px;
+	margin-bottom: 0;
+}
+
+
+aside .forms h5 span{
+	color: #e8491d;
+}
+
+aside .forms button{
+	border-radius: 10px 10px 10px 10px;
+
+}
+
+
+aside .forms .button{
+	margin-top: 10px;
+}
+
+.btn{
+	display: none;
+	height: 30px;
+	color: #ffffff;
+	background: #268804;
+	padding-left: 20px;
+	padding-right: 20px;
+}
+
+/*Create red flag and intervetion*/
+/*########################################################################################################*/
+
+
+
+
+.sub0{
+	display: block;
+	float: right;
+	margin-right: 50px;
+}
+
+.sub0 h4{
+	margin-right: 10px;
+}
+
+.sub0 form input[type="email"]{
+	width: 200px;
+	border-radius: 02px 02px 02px 02px;
+}
+
+.sub0 button{
+	color: #ffffff;
+	padding-left: 15px;
+	padding-right: 15px;
+	border-radius: 10px 10px 10px 10px;
+	background: red;
+	height: 25px;
+}
+
+.sub{
+	display: none;
+}
+
+.foot{
+	width: 100%;
+	height: 50px;
+	text-align: center;
+	position: absolute;
+	bottom: 0;
+	padding-top: 0px;
+
+
+}
+
+
+footer{
+
+	top: 50px;
+	height: 250px;
+	position: relative;
+	text-align: center;
+	color: #ffffff;
+	background: url(../img/backgrounda.gif);
+	background-repeat: no-repeat;
+	background-size: cover;
+}
+
+
+
+/*media query*/
+/*About 1150px size*/
+
+@media(max-width: 1150px){
+	aside#create h3{
+		font-size: 13px;
+	}
+}
+
+
+/*media query*/
+/*About 1050px size*/
+
+@media(max-width: 1050px){
+	aside#create h3{
+		font-size: 12px;
+	}
+}
+
+/*media query*/
+/*About 1050px size*/
+
+@media(max-width: 960px){
+	aside#create h3{
+		font-size: 11px;
+	}
+}
+
+
+/*media query*/
+/*About 960px size*/
+
+@media(max-width: 920px){
+
+
+	#boxes .box0{
+		width: 90%;
+		margin-left: 30px;
+	}
+
+
+	#boxes .box2{
+		font-size: 10px;
+		margin-left: 180px;
+		float: left;
+		width: 60%;
+	}
+
+
+
+
+}
+
+
+@media(max-width: 800px){
+
+	#boxes .box2{
+		font-size: 10px;
+		margin-left: 70px;
+		float: left;
+		width: 80%;
+	}
+
+	.sub{
+		display: block;
+		float: none;
+		margin: auto;
+		text-align: center;
+		margin-bottom: 50px;
+	}
+
+	.sub h4{
+		color: #35424a;
+		font-size: 13px;
+		font-weight: bold;
+	}
+
+	.sub form input[type="email"]{
+		width: 200px;
+		border-radius: 02px 02px 02px 02px;
+	}
+
+	.sub button{
+		color: #ffffff;
+		padding-left: 15px;
+		padding-right: 15px;
+		border-radius: 10px 10px 10px 10px;
+		background: red;
+		height: 25px;
+	}
+
+
+	.sub0{
+		display: none;
+	}
+}
+
+
+
+
+
+/*media query*/
+/*About 700px size*/
+
+@media(max-width: 700px){
+
+	header li{
+		margin-top: 10px;
+		padding: 0 06px 0 06px;
+	} 
+
+	.container{
+		min-width: 95%;
+	}
+
+	header #branding{
+		font-size: 12px;
+	}
+
+	header a{
+		font-size: 12px;
+	}
+
+	#boxes .box0{
+		width: 90%;
+		margin-left: 15px;
+	}
+
+	#boxes .box2{
+		font-size: 10px;
+		margin-left: 60px;
+		float: left;
+		width: 80%;
+	}
+
+	
+	
+}
+
+
+
+
+/*media query*/
+/*About 550px size*/
+
+@media(max-width: 500px){
+
+	header #branding{
+		margin-top: 0px;
+		font-size: 15px;
+	}
+
+
+	/*header #branding,*/
+	header nav,
+	header nav li
+	{
+		float: right;
+		display: block;
+		width: 50%;
+
+	}
+
+	header a{
+		font-size: 10px;
+	}
+
+	header nav .a{
+		display: none;
+	}
+
+	.pro{
+		display: none;
+		}
+	
+	header nav .menu{
+		display: inline-block;
+	}
+
+	.active{
+		display: block;
+	}
+
+	#boxes .box0{
+		width: 90%;
+		margin-left: 05px;
+	}
+
+	
+	#boxes .box2{
+		font-size: 10px;
+		margin-left: 0px;
+		width: 90%;
+	}
+
+	
+
+	.sub{
+		display: block;
+		float: none;
+		margin: auto;
+		text-align: center;
+		margin-bottom: 50px;
+	}
+
+
+	.sub h4{
+		color: #35424a;
+		font-size: 13px;
+		font-weight: bold;
+	}
+
+	.sub form input[type="email"]{
+		width: 200px;
+		border-radius: 02px 02px 02px 02px;
+	}
+
+	.sub button{
+		color: #ffffff;
+		padding-left: 15px;
+		padding-right: 15px;
+		border-radius: 10px 10px 10px 10px;
+		background: red;
+		height: 25px;
+	}
+
+
+	.sub0{
+		display: none;
+	}
+
+
+
+/*###############################################################################################################################*/
+
+
+
+
+	
+}
+
+
+
+
+/*media query*/
+/*About 450px size*/
+
+@media(max-width: 450px){
+	
+	    .container{
+		min-width: 95%;
+	}
+
+	header #branding{
+		margin-top: 0px;
+		font-size: 10px;
+		width: 40%;
+	}
+
+	/*header #branding,*/
+	header nav,
+	header nav li
+	{
+		float: right;
+		display: block;
+		width: 60%;
+
+	}
+
+	/*No need of mob-menu again */
+
+	header a{
+		font-size: 12px;
+	}
+
+	#name{display: none;
+	}
+
+
+	aside#create h3{
+		font-size: 11px;
+	}
+
+	.sub h4{
+		font-size: 12px;
+	}
+
+	.sub form input[type="email"]{
+		width: 180px;
+	}
+
+	.sub button{
+		padding-left: 10px;
+		padding-right: 10px;
+		height: 20px;
+	}
+
+	.foot{
+		text-align: center;
+		font-size: 12px;
+	}
+
+
+}
+
+
+
