@@ -25,7 +25,7 @@ Corruption is a huge bane to Africa’s development. African countries must deve
 
 ## Visit broadcaster UI Templates
 
-Before we get started Remember to take  :coffee:   :pizza:  and :dancer:   When You Are coding, come on it all about relax
+Before we get started Remember to take  :coffee:   :pizza:  and :dancer:   When You Are coding, come on it all about relaxing
 
  ## Frontend tools
 
