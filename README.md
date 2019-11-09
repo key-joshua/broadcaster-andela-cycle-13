@@ -1,4 +1,4 @@
-# broadcaster-andela-cycle-13
+# broadcaster Application
 Corruption is a huge bane to Africa’s development. African countries must develop novel and localized solutions that will curb this menace, hence the birth of Broadcaster. Broadcaster enables any/every citizen to bring any form of corruption to the notice of appropriate authorities and the general public. Users can also report on things that need government intervention
 <br>
 ## Features
@@ -26,8 +26,6 @@ Corruption is a huge bane to Africa’s development. African countries must deve
 ## Visit broadcaster UI Templates
 
 Before we get started Remember to take  :coffee:   :pizza:  and :dancer:   When You Are coding, come on it all about relax
-
- <br>
 
  ## Frontend tools
 
