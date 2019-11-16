@@ -1,6 +1,5 @@
-
-[![CircleCI](https://circleci.com/gh/key-joshua/broadcaster-andela-cycle-13.svg?style=svg)](https://circleci.com/gh/key-joshua/broadcaster-andela-cycle-13)
 [![Build Status](https://travis-ci.org/key-joshua/broadcaster-andela-cycle-13.svg?branch=develop)](https://travis-ci.org/key-joshua/broadcaster-andela-cycle-13)
+[![CircleCI](https://circleci.com/gh/key-joshua/broadcaster-andela-cycle-13.svg?style=svg)](https://circleci.com/gh/key-joshua/broadcaster-andela-cycle-13)
 [![Coverage Status](https://coveralls.io/repos/github/key-joshua/broadcaster-andela-cycle-13/badge.svg?branch=develop)](https://coveralls.io/github/key-joshua/broadcaster-andela-cycle-13?branch=develop)
 
 # broadcaster Application
