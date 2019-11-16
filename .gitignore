@@ -1,0 +1,7 @@
+node_modules/
+sever/
+# .env
+# .nyc_output
+# .DS_Store
+# package-lock.json
+# coverage

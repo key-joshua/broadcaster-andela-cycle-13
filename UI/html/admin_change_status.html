@@ -1,0 +1,261 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="author" content="Developer Minani Key-Joshua">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"> 
+	<meta name="keywords" content="andela cycle 13 developers challenge ">
+	<meta name="description" content="Learning deeply about using html5 and css">
+	<title>Bradcasting | Admin Change User Status Page</title>
+	<link rel="stylesheet" type="text/css" href="../asserts/css/innereview.css" >
+	<link rel="stylesheet" type="text/css" href="../asserts/css/landing.css" >
+	<link rel="stylesheet" type="text/css" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+</head>
+<body>
+
+	<header>
+		<div class="container">
+
+			<div id="branding">
+				<h2><span class="highlight" >Broad</span>Caster</h2>
+			</div>
+			
+			
+			<nav>
+				<li class="ul-li-a "><a href="admin_dashboard.html"><i class="fa fa-address-book-o"></i>Admin Account</a></li>
+				
+				
+				<i class="fa fa-bars menu" aria-hidden="true"></i>
+				<h id="name">key Joshua</h> <img src="../asserts/img/profile.jpg" class="pro">
+
+
+				<ul id="ul1">
+					<li class="ul-li-a" ><a href="index.html" ><i class="fa fa-home" aria-hidden="true"></i>Home</a></li>
+				</ul>
+				
+				<ul id="ul">
+					<li class="ul-li-a" ><a href="user_signin.html" ><i class="fa fa-user-circle" aria-hidden="true"></i>Profile</a></li>
+					<li class="ul-li-a"><a href="admin_signin.html"><i class="fa fa-sign-out"></i>Logout</a></li>
+				</ul>
+
+
+			</nav>
+		</div>
+	</header>
+
+	<section id="boxes">
+		<div class="container">
+
+			<div class="box0">
+				<div class="bio">
+					
+					<h4><i class="fa fa-info-circle"> Title: </i><h id="titling">J.Paul Obused kid of 9 Years Old</h></h4>
+
+					<p><div id="map">  </div> </p>
+
+					<p><i class="fa fa-user"> Id: </i><h id="iso"> 01 </h></p>
+
+					<p><i class="fa fa-pencil-square-o"> Name: </i><h id="nome"> Key Joshua </h></p>
+
+					<p><i class="fa fa-connectdevelop"> Status: </i><h id="statuseos"> draft </h> </p>
+
+					<p><i class="fa fa-check"> Type: </i><h id="types"> red-flag</h></p>
+
+					<p><i class="fa fa-map-marker"> Location: </i><h id="cordinate">Saudi Arabia</h></p>
+
+					<p><i class="fa fa-podcast"> Latitude: </i><h id="latit">25.08 </h></p>
+
+					<p><i class="fa fa-podcast"> Longitude: </i><h id="longit">50.45 </h></p>
+
+					<p><i class="fa fa-tags"></i>Tagged to: </i><h id="tag"> @UNICEF, @UN, @AU </h> </p>
+					
+
+					<p><i class="fa fa-calendar-times-o"> Date: </i><h id="dates"> Sun Oct 27 2019 10:50:53 GMT </h></p>
+
+
+					<embed src="../asserts/ivideo/sample.mp4" class="file"></embed>
+
+
+
+					 <p>
+					 	M.r J.Paul Obused kid of 9 Years Old from Rwandan, was born in Rwandan precisely in Kiagli, am 33 years old, he have Joined this Broadcast in 2019 to collaborating with other african countries which are in the movement of fight againt corruption in africa. M.r J.Paul Obused kid of 9 Years Old from Rwandan, was born in Rwandan precisely in Kiagli, am 33 years old, he have Joined this Broadcast in 2019 to collaborating with other african countries which are in the movement of fight againt corruption in africa. M.r J.Paul Obused kid of 9 Years Old from Rwandan, was born in Rwandan precisely in Kiagli, am 33 years old, he have Joined this Broadcast in 2019 to collaborating with other african countries which are in the movement of fight againt corruption in africa. M.r J.Paul Obused kid of 9 Years Old from Rwandan, was born in Rwandan precisely in Kiagli, am 33 years old, he have Joined this Broadcast in 2019 to collaborating with other african countries which are in the movement of fight againt corruption in africa. 
+					</p>
+
+
+					<embed src="../asserts/img/imgc.png" class="file1" ></embed>
+					
+				</div>
+
+				<div class="bt">
+					<a href="admin_change_status.html#commentplace"><button class="button_cmnt" id="comnt"><i  class="fa fa-commenting-o"></i>Comment</button></a>
+					<a href="admin_change_status.html#exactplace"><button class="button_edits" id="edit"><i class="fa fa-wrench"></i>CHANGE STATUS</button></a>
+				</div>
+
+			</div>
+
+
+			<div class="box2">
+
+				
+			<div id="status_stuff">
+				<p><a name="exactplace"></a></p>
+				<aside id="created">
+				<div class="behind">
+
+					<h3>CHANGE STATUS</h3>
+
+					<div class="forms">
+
+						<div>
+							<input type="text" name="dates" id="changeDate">
+						</div>
+
+						<div>
+							<input type="phone" name="phone" id="phone" >
+						</div>
+
+						<div>
+							<input type="email" name="email" id="email" >
+						</div>
+
+						<div>
+							<input type="text" name="subject" id="subjects">
+						</div>
+
+						<div>
+							<input type="text" name="message" id="messages">
+						</div>
+
+					
+						<div>
+							<select name="order" id="order" onchange="shows('unders','resolvs','rejects', this)" required="">
+								<option value="draft">select status </option>
+								<option value="under_investigation">under_investigation</option>
+								<option value="resolved">resolved</option>
+								<option value="rejected">rejected</option>
+							</select>
+						</div>
+						
+					
+						<div class="button">
+		
+							<button type="submit" name="submit" class="btn" id="unders"><i class="fa fa-wrench"></i>CHANGE Und</button>
+							<button type="submit" name="submit" class="btn" id="resolvs"><i class="fa fa-wrench"></i>CHANGE Res</button>
+							<button type="submit" name="submit" class="btn" id="rejects"><i class="fa fa-wrench"></i>CHANGE Rej</button>
+
+						</div>
+						
+					</div>
+					
+				</div>	
+			</aside>
+		</div>
+
+			<div id="comnt_stuff">
+				<p><a name="commentplace" id="update"></a></p>
+				<aside id="createc">
+				<div class="behind">
+
+					<aside id="createb">
+						<div class="behinda">
+
+					<h3>POST COMMENT</h3>
+
+					<div class="forms">
+
+						<div>
+							<input  name="name" id="nama" placeholder=" Your Username"> 
+						</div>
+
+						
+						<div>
+							<textarea  name="text" id="comnty" placeholder=" Your comment..."></textarea> 
+						</div>
+
+						<div>
+							<button type="submit" class="button_post" id="post">POST</button>
+						</div>
+
+					</div>
+				</div>	
+			</aside>
+			</div>			
+		</aside>
+
+
+		<div id="ctd_cmnt" >
+			<h3 >Comments: <h id="counts">03</h></h3>
+		<div class="bio" id="usr_cmnt">
+
+					<h5><i class="fa fa-user"> Username: </i> Key Joshua </h5>
+					 <p>
+					 	I hope that goverment will do something
+					</p>
+		</div>
+
+
+		<div class="bio" id="usr_cmnt">
+		
+					<h5><i class="fa fa-user"> Username: </i> Melisa </h5>
+					 <p>
+					 	Hello Key Joshua is this belong to the goverment?
+					</p>
+        </div>
+
+        <div class="bio" id="usr_cmnt">
+		
+					<h5><i class="fa fa-user"> Username: </i> Teddy </h5>
+					 <p>
+					 	To be honestly this case must be cared
+					</p>
+        </div>
+
+        <div class="bio"  id="contento">
+		
+					<h5><i class="fa fa-user"> Username: </i><h id="Usernamo"> </h></h5>
+					 <p id="nextCmnto"> </p>
+        </div>
+
+    </div>
+    </div>
+
+
+
+
+		</div>
+
+			<div class="sub">
+				<form>
+					<h4>Subscribe for our update broadcasting</h4>
+					<input type="email" name="email" placeholder="typing your email...">
+					<button type="submit" class="btn_sub">Subscribe</button>
+				</form>
+			</div>
+
+	</div>
+</section>
+
+
+
+	<footer>
+		<div class="sub0">
+			<form>
+				<h4>Subscribe for our update broadcasting</h4>
+				<input type="email" name="email" placeholder="typing your email...">
+				<button type="submit" class="btn_sub">Subscribe</button>
+			</form>
+		</div>
+		
+	<div class="foot">
+
+		<p>Broadcaster &copy; 2019 Developed By Key-Joshua</p>
+	</div>
+	</footer>
+
+<script src="../asserts/script/admin_change.js" type="text/javascript"></script>
+<script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAI38nI4lmagfKGwHYVRyjJm8420-nJ_aw&callback=initMap">
+</script>
+<script src="https://smtpjs.com/v3/smtp.js">
+</script>
+</body>
+</html>
