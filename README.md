@@ -1,8 +1,10 @@
+
 [![CircleCI](https://circleci.com/gh/key-joshua/broadcaster-andela-cycle-13.svg?style=svg)](https://circleci.com/gh/key-joshua/broadcaster-andela-cycle-13)
 [![Build Status](https://travis-ci.org/key-joshua/broadcaster-andela-cycle-13.svg?branch=develop)](https://travis-ci.org/key-joshua/broadcaster-andela-cycle-13)
 [![Coverage Status](https://coveralls.io/repos/github/key-joshua/broadcaster-andela-cycle-13/badge.svg?branch=develop)](https://coveralls.io/github/key-joshua/broadcaster-andela-cycle-13?branch=develop)
 
-# broadcaster-andela-cycle-13
+# broadcaster Application
+
 Corruption is a huge bane to Africa’s development. African countries must develop novel and localized solutions that will curb this menace, hence the birth of Broadcaster. Broadcaster enables any/every citizen to bring any form of corruption to the notice of appropriate authorities and the general public. Users can also report on things that need government intervention
 <br>
 ## Features
@@ -29,9 +31,7 @@ Corruption is a huge bane to Africa’s development. African countries must deve
 
 ## Visit broadcaster UI Templates
 
-Before we get started Remember to take  :coffee:   :pizza:  and :dancer:   When You Are coding, come on it all about relax
-
- <br>
+Before we get started Remember to take  :coffee:   :pizza:  and :dancer:   When You Are coding, come on it all about relaxing
 
  ## Frontend tools
 

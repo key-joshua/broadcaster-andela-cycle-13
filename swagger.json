@@ -1,0 +1,406 @@
+{
+  "swagger": "2.0",
+  "info": {
+    "description": " Corruption is a huge bane to Africa’s development. African countries must develop novel and localized solutions that will curb this menace, hence the birth of Broadcaster. Broadcaster enables any/every citizen to bring any form of corruption to the notice of appropriate authorities and the general public. Users can also report on things that need government intervention. therefore broadcaster will allow users to use this App to report those banch of activities ",
+    "version": "1.0.0",
+    "title": "Broadcaster",
+    "termsOfService": " https://github.com/key-joshua/broadcaster-andela-cycle-13/blob/develop/README.md",
+    "contact": { "email": "k.joshua855@gmail.com" }
+  },
+
+  "host": "localhost:1000",
+  "basePath": "/api/v1",
+  "tags": [
+    {
+      "name": "Users",
+      "description": " Users endpoints ::  Those endpoints will be used by the users like to signup, signin, view users"
+    },
+    {
+      "name": "Records",
+      "description": "Record endpoints ::  Those endpoints will be used by the users to create records, view records, delete records, update records"
+    },
+    {
+      "name": "Admin",
+      "description": "Admin endpoint ::  This endpoint will be used by admin to change status of record"
+    }
+  
+  ],
+  
+  "schemes": ["http","https"],
+  "consumes": ["application/json", "none"],
+  "produces": [ "application/json", "none"],
+  "paths": {
+
+    "/auth/signup": {
+      "post": {
+        "tags": [ "Users"],
+        "summary": "register new user into data structure with broadcaster  application",
+        "description": "Now by the use of this POST endpoint, you can register new user into data structure with broadcaster application and after successfully register you will get token to authenticate you to consume other resources",
+        "responses": { "201": { "description": " OK : successfully created account "}},        
+        "parameters": [ 
+          { 
+            "in":"body", 
+            "name":"body",  
+            "description":"parsing user info to create account in form of object", 
+            "schema": { "$ref": "#definitions/userSignup" }
+          }
+        ]
+      }
+    },
+
+    "/auth/signin": {
+      "post": {
+        "tags": [ "Users"],
+        "summary": "signin user with broadcaster  application",
+        "description": "Now by the use of this POST endpoint, you can signin user with broadcaster application and after successfully signin you will get token to authenticate you to consume other resources",
+        "responses": { "200": { "description": " OK : successfully logged in"}},        
+        "parameters": [ 
+          { 
+            "in":"body", 
+            "name":"body",  
+            "description":"parsing user data to signin as object", 
+            "schema": { "$ref": "#definitions/userSignin" }
+            }
+          ]
+      
+      }
+    },
+
+    "/users": {
+      "get": {
+        "tags": [ "Users"],
+        "summary": "admin should retrieve all kinds of users from data structure with broadcaster application",
+        "description": "Now by the use of this GET endpoint admin can retrieve all users and admin must have token to authenticate him/her to get access to the resources",
+        "responses": { "200": { "description": " OK : successfully retrieved all users from Data structure"}},
+        "parameters": [ 
+          { 
+            "in":"header", 
+            "name":"Authorization",  
+            "description":"parsing a given token to get authenticated to the resources"
+            }
+          ]
+      }
+    },
+
+
+
+
+
+
+    
+    "/red-flags/": {
+      "post": {
+        "tags": [ "Records"],
+        "summary": "create new record into data structure with broadcaster application",
+        "description": "Now by the use of this POST endpoint, users can create new record  into data structure with broadcaster application and must have token to authenticate him/her ",
+        "consumes": ["multipart/form-data", "application/x-www-form-urlencoded"],
+        "responses": { "201": { "description": " OK : successfully created record "}},        
+        "parameters":  
+        [ 
+          { 
+            "in":"header", 
+            "name":"Authorization",  
+            "description":"user must parsing his/her token to get authenticate to create record", 
+            "type": "string"
+          },
+          { 
+            "type": "string", 
+            "in":"formData", 
+            "name":"createdBy",  
+            "description":"user must parsing the title of record "
+          },
+          { 
+            "type": "string", 
+            "in":"formData", 
+            "name":"title",  
+            "description":"user must parsing the title of record "
+          },
+          { 
+            "type": "string", 
+            "in":"formData", 
+            "name":"type",  
+            "description":"user must parsing the type of record "
+          },
+          { 
+            "type": "string", 
+            "in":"formData", 
+            "name":"latitude",  
+            "description":"user can parse the latitude of record "
+          },
+          { 
+            "type": "string", 
+            "in":"formData", 
+            "name":"longitude",  
+            "description":"user can parse the longitude of record "
+          },
+          { 
+            "type": "file",
+            "in":"formData", 
+            "name":"images",  
+            "description":"user can upload an images with record "
+          },
+          { 
+            "type": "file",
+            "in":"formData", 
+            "name":"videos",  
+            "description":"user can upload videos with record "
+          },
+          { 
+            "type": "string", 
+            "in":"formData", 
+            "name":"comment",  
+            "description":"user can parse the longitude of record "
+          }
+        ]
+      }
+    },
+    
+    "/red-flags": {
+      "get": {
+        "tags": [ "Records"],
+        "summary": "User should retrieve all records of other users from data structure with broadcaster application",
+        "description": "Now by the use of this GET endpoint user can retrieve other users records and user must have token to authenticate him/her to get access to the resources",
+        "responses": { "200": { "description": " OK : successfully retrieved users records from Data structure"}},
+        "parameters": [ 
+          { 
+            "in":"header", 
+            "name":"Authorization",  
+            "description":"parsing a given token to get authenticated to the resources"
+            }
+          ]
+      }
+    },
+
+    "/red-flags/{redflagid}": {
+      "get": {
+        "tags": [ "Records"],
+        "summary": "User should view record of other user from data structure with broadcaster application",
+        "description": "Now by the use of this GET endpoint user can retrieve single record of other users and user must have token to authenticate him/her to get access to the resources",
+        "responses": { "200": { "description": " OK : successfully retrieved user record details from Data structure"}},
+        "parameters": [ 
+          { 
+            "in":"header", 
+            "name":"Authorization",  
+            "description":"parsing a given token to get authenticated to the resources"
+            },
+            { 
+              "in":"path",
+              "name": "redflagid",
+              "type": "integer",   
+              "description":"parsing a red-flag id you want to retrieve"
+            }
+          ]
+      }
+    },
+
+    "/red-flags/{redflagid}/comment": {
+      "patch": {
+        "tags": [ "Records"],
+        "summary": "Users should change location of record with broadcaster application",
+        "description": "Now by the use of this PATCH endpoint users should change location of record and user must be the owner of record with the token to authenticate to the resources",
+        "responses": { "200": { "description": " OK : successfully changed location of record"}},
+        "parameters":  
+        [ 
+          { 
+            "in":"header", 
+            "name":"Authorization",  
+            "description":"user must parsing his/her token to get authenticate to the resources", 
+            "type": "string"
+          }, 
+          { 
+            "in": "path",
+            "name": "redflagid", 
+            "type": "integer",
+            "description": "users must parsing a record Id he/she want to change" 
+          },
+          { 
+            "type": "string", 
+            "in":"formData", 
+            "name":"createdBy",  
+            "description":"user must parsing the title of record "
+          },
+          { 
+            "type": "string", 
+            "in":"formData", 
+            "name":"title",  
+            "description":"user must parsing the title of record "
+          },
+          { 
+            "type": "string", 
+            "in":"formData", 
+            "name":"type",  
+            "description":"user must parsing the type of record "
+          },
+          { 
+            "type": "string", 
+            "in":"formData", 
+            "name":"latitude",  
+            "description":"user can parse the latitude of record "
+          },
+          { 
+            "type": "string", 
+            "in":"formData", 
+            "name":"longitude",  
+            "description":"user can parse the longitude of record "
+          },
+          { 
+            "type": "file",
+            "in":"formData", 
+            "name":"images",  
+            "description":"user can upload an images with record "
+          },
+          { 
+            "type": "file",
+            "in":"formData", 
+            "name":"videos",  
+            "description":"user can upload videos with record "
+          },
+          { 
+            "type": "string", 
+            "in":"formData", 
+            "name":"comment",  
+            "description":"user can parse the longitude of record "
+          }
+        ] 
+      }
+    },
+
+    "/red-flags/{redflagid}/location": {
+      "patch": {
+        "tags": [ "Records"],
+        "summary": "Users should change location of record with broadcaster application",
+        "description": "Now by the use of this PATCH endpoint users should change location of record and user must be the owner of record with the token to authenticate to the resources",
+        "responses": { "200": { "description": " OK : successfully changed location of record"}},
+        "parameters":  
+        [ 
+          { 
+            "in":"header", 
+            "name":"Authorization",  
+            "description":"user must parsing his/her token to get authenticate to the resources", 
+            "type": "string"
+          }, 
+          { 
+            "in": "path",
+            "name": "redflagid", 
+            "type": "integer",
+            "description": "users must parsing a record Id he/she want to change" 
+          },
+          { 
+            "in":"body", 
+            "name":"body",  
+            "description":"user must parsing the new longitude and latitude to update ",
+            "schema": { "$ref": "#definitions/updateLocation" }
+          }
+        ] 
+      }
+    },
+
+    "/red-flags/{redflagids}": {
+      "delete": {
+        "tags": [ "Records"],
+        "summary": "User should be delete his/her record with broadcaster application",
+        "description": "Now by the use of this GET endpoint user can delete his/her record and user must have token to authenticate him/her to get access to the resources",
+        "responses": { "200": { "description": " OK : you are successfully deleted record from Data structure"}},
+      "parameters": [ 
+          { 
+            "in":"header", 
+            "name":"Authorization",  
+            "description":"parsing a given token to get authenticated to the resources"
+            },
+            { 
+              "in":"path",
+              "name": "redflagids",
+              "type": "integer",   
+              "description":"parsing a red-flag id you want to delete"
+            }
+          ]
+        }
+    },
+
+
+
+
+
+
+    
+    "/red-flags/{redflagid}/changestatus": {
+    "patch": {
+      "tags": [ "Admin"],
+      "summary": "admin should change status of record with broadcaster application",
+      "description": "Now by the use of this PATCH endpoint admin should change status of record and admmin must parse admin token to authenticate him/her to the resources",
+      "responses": { "200": { "description": " OK : successfully changed status of record"}},
+      "parameters":  
+      [ 
+        { 
+          "in":"header", 
+          "name":"Authorization",  
+          "description":"admin must parsing his/her token to get authenticate to the resources", 
+          "type": "string"
+        }, 
+        { 
+          "in": "path",
+          "name": "redflagid", 
+          "type": "integer",
+          "description": "admin must parsing a record Id he/she want to change" 
+        },
+        { 
+          "in":"body", 
+          "name":"body",  
+          "description":"user must parsing the new atatus of record ",
+          "schema": { "$ref": "#definitions/changeStatus" }
+        }
+      ] 
+    }
+  }
+  
+},
+
+  "definitions": {
+    "userSignup": 
+    {
+        "type": "object",
+        "required": [ "email","password" ],
+        "properties": 
+        {
+          "firstname":{"type":"string"},
+          "lastname":{"type":"string"},
+          "username":{"type":"string"},
+          "email" : {"type": "string"},
+          "phone":{"type":"string"},
+          "password": {"type":"string"}
+        }
+    },
+
+    "userSignin": 
+    {
+        "type": "object",
+        "required": [ "email","password" ],
+        "properties": 
+        {
+          "email" : {"type": "string"},
+          "password": {"type":"string"}
+        }
+      },
+
+      "updateLocation": 
+    {
+        "type": "object",
+        "properties": 
+        {
+          "latitude" : {"type": "string"},
+          "longitude": {"type":"string"}
+        }
+      },
+
+      "changeStatus": 
+      {
+          "type": "object",
+          "properties": 
+          {
+            "status" : {"type": "string"}
+          }
+        }
+  }
+}
+
+     
