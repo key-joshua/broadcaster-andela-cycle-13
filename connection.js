@@ -8,6 +8,7 @@ app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
 const basePath = '/api/v1';
 const docUrl = 'localhost:3000/api/v1/documentation/';
+const docUrls = 'https://broadcaster-andela-cycle-13.herokuapp.com/api/v1/documentation';
 
 app.use(basePath, authapp);
 app.use(`${basePath}/documentation`, swaggerUi.serve, swaggerUi.setup(apiDocumentation));
@@ -15,7 +16,7 @@ app.listen(process.env.PORT || 3000, () => { console.log('server is running on p
 app.get('**', (req, res) => {
   res.status(200).send({ status: 200,
     message: 'Hey !! You are Welcome to API version 1 of Broadcaster, Now Server Connetion is Live, go with this link below it all about documentation of this API',
-    link: docUrl,
+    link: docUrls,
   });
 });
 
