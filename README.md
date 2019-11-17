@@ -38,4 +38,4 @@ Before we get started Remember to take  :coffee:   :pizza:  and :dancer:   When 
 This, It all about what i have been requested (recommanded) in the instructions to hosting UI Template in github using this gh-pages branch and right now my UI Template Application is Hosted: 
 
 - [broadcaster Application for users](https://key-joshua.github.io/broadcaster-andela-cycle-13/).
-- [broadcaster Application admin panel ](https://key-joshua.github.io/broadcaster-andela-cycle-13/UI/html/admin_signin.html/).
+- [broadcaster Application admin panel ](https://key-joshua.github.io/broadcaster-andela-cycle-13/UI/html/admin_signin.html).
