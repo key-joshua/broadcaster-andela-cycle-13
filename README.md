@@ -61,7 +61,7 @@ This, It all about what i have been requested (recommanded) in the instructions 
 
 This, It all about what i have been requested (recommanded) in the instructions to hosting my APIs to Heroku, by using heroku services right now all endpoints of Application is Hosted: 
 
-- [Api Root Heroku](https://broadcaster-andela-cycle-13.herokuapp.com)
+- [Api Root Heroku](https://broadcaster-andela-cycle-13.herokuapp.com/)
 
 
 #### Get into broadcaster Back-end Documentation by Visiting Thoses link below
@@ -74,10 +74,10 @@ This, It all about what i have been requested (recommanded) in the instructions 
 
 - Version API using URL versioning starting with the letter “v”. A simple ordinal
   number would be appropriate and avoid dot notation such as 1.0. So, that why you have to add api/v1 
-  for each route of endpoints you want to access for example(i.e) http://localhost:1000/api/v1/auth/signup/  
+  for each route of endpoints you want to access for example: https://broadcaster-andela-cycle-13.herokuapp.com/api/v1/auth/signup/  
 
 
-| NO | VERBS  | ENDPOINTS                            | STATUS   | ACCESS                   | DESCRIPTION                             |
+|NO | VERBS  | ENDPOINTS                            | STATUS   | ACCESS                   | DESCRIPTION                             |
 |----|--------|--------------------------------------|----------|--------------------------|-----------------------------------------|
 | 1  | POST   | /auth/signup/                        |  201 OK  | public                   | create an account then get token        |
 | 2  | POST   | /auth/signin/                        |  200 OK  | public                   | login to the app then get token         |
@@ -87,19 +87,21 @@ This, It all about what i have been requested (recommanded) in the instructions 
 | 6  | GET    | /red-flags/:red-flag-id              |  200 OK  | public                   | view single created record with token   |
 | 7  | PATCH  | /red-flags/:red-flag-id/comment      |  200 OK  | private (Owner's record) | update single record details with token |
 | 8  | PATCH  | /red-flags/:red-flag-id/location     |  200 OK  | private (Owner's record) | update location of record with token    |
-| 9  |PATCH   | /red-flags/:red-flag-id/changestatus |  200 OK  | private (Admin's system) | update location of record with token    |
-| 10 |DELETE  | /red-flags/:red-flag-id              |  200 OK  | private (Owner's record) | delete single record with token         |
+| 9  | PATCH  | /red-flags/:red-flag-id/changestatus |  200 OK  | private (Admin's system) | update location of record with token    |
+| 10 | DELETE | /red-flags/:red-flag-id              |  200 OK  | private (Owner's record) | delete single record with token         |
 
 
 #### Other Tools
 
 Other tools and technologies used in development of this application are;
-- Hoster: [Heroku]().
+- Hoster: [Heroku](https://heroku.com/).
 - Compiler: [Babel](https://babeljs.io/).
 - Pivotal Tracker:[PT](https://www.pivotaltracker.com/n/projects/2379610).
 - Style Guide: [Airbnb](https://airbnb.io/projects/javascript/).
 - Integrate: [TravisCI](https://travis-ci.org/key-joshua/broadcaster-andela-cycle-13).
+- Integrate: [CircleCI](https://circleci.com/gh/key-joshua/broadcaster-andela-cycle-13/).
 - Integrate: [Coveralls](https://coveralls.io/github/key-joshua/broadcaster-andela-cycle-13).
+- Integrate: [Codeclimate](https://codeclimate.com/github/key-joshua/broadcaster-andela-cycle-13).
 - Framework: [ExpressJS](http://expressjs.com/).
 - Documentation: [Swagger](https://swagger.io/).
 - Linting Library: [ESLint](https://eslint.org/).
@@ -131,12 +133,12 @@ npm run test
 
 #### Api Documentation
 
-Get started with broadcaster Api endpoints swagger documentation locally after clone project [here](http://localhost:1000/api/v1/documentation).
+Get started with broadcaster Api endpoints swagger documentation locally after clone project [here](http://localhost:3000/api/v1/documentation).
 
 #### Deployment
 
 - gh-pages : [broadcaster](https://key-joshua.github.io/broadcaster-andela-cycle-13/).
-- heroku : [broadcaster](https://broadcaster-andela-cycle-13.herokuapp.com).
+- heroku : [broadcaster](https://broadcaster-andela-cycle-13.herokuapp.com/).
 #### Dedicated: [Andela-Developer-Challenge](https://andela.com/).
 
 #### Develoer: [Key Joshua](https://www.instagram.com/key_joshua/).
