@@ -77,7 +77,7 @@ This, It all about what i have been requested (recommanded) in the instructions 
   for each route of endpoints you want to access for example: https://broadcaster-andela-cycle-13.herokuapp.com/api/v1/auth/signup/  
 
 
-|NO | VERBS  | ENDPOINTS                            | STATUS   | ACCESS                   | DESCRIPTION                             |
+|NO  | VERBS  | ENDPOINTS                            | STATUS   | ACCESS                   | DESCRIPTION                             |
 |----|--------|--------------------------------------|----------|--------------------------|-----------------------------------------|
 | 1  | POST   | /auth/signup/                        |  201 OK  | public                   | create an account then get token        |
 | 2  | POST   | /auth/signin/                        |  200 OK  | public                   | login to the app then get token         |
