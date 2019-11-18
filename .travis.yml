@@ -1,3 +1,4 @@
+if: (type = push AND branch IN (develop, dev)) OR (type = pull_request AND NOT branch =~ /no-ci/)
 language: node_js
 node_js:
   - 'stable'
