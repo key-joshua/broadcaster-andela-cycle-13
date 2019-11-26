@@ -3,15 +3,13 @@ body{
 	padding: 0;
 	margin: 0;
 	min-height: 100%;
-	background: #35424a;
+	background-color: rgba(0, 0, 0, 0.1);
 }
-
-
 
 .bgd{
 	height: 100%;
 	bottom: 0px;
-	background: url(../img/backgroundb.png);
+	background: url(../img/backgrounds.png);
 	background-repeat: no-repeat;
 	background-size: cover;
 }
@@ -27,7 +25,7 @@ header{
 
 
 header #branding{
-	font-size: 15px;
+	font-size: 20px;
 	float: left;
 }
 
@@ -46,23 +44,23 @@ header a{
 	color: #ffffff;
 	text-decoration: none;
 	text-transform: uppercase;
-	font-size: 12px;
+	font-size: 16px;
 }
 
 header li{
 	float: left;
 	display: inline;
-	margin-top: 10px;
+	margin-top: 40px;
 	padding: 0 20px 0 20px;
 } 
 
 header nav .menu{
 
 	display: none;
-	font-size: 30px;
+	font-size: 50px;
 	margin-left: 150px;
 	color: #e8491d;
-	margin-top: 00px;
+	margin-top: 05px;
 }
 
 header nav{
@@ -71,24 +69,28 @@ header nav{
 	margin-bottom: 10px;
 }
 
-
-#name{
-	font-size: 08px;
-}
-
-
 .highlight, header .current a{
 	color: #dd5833;
 	font-weight:bold;
 }
 
 header a:hover{
-	padding: 10px;
+	padding-top: 06px;
+	padding-bottom: 06px;
 	color: #e8491d;
 	background-color: rgba(0, 0, 0, 0.5);
-	border-radius: 10px 10px 10px 10px;
+	border-radius: 08px 08px 08px 08px;
 }
 
+
+header nav #name{
+	font-size: 14px;
+}
+
+.highlight, header .current a{
+	color: #dd5833;
+	font-weight:bold;
+}
 
 /*Gobally Stuff*/
 .container{
@@ -110,6 +112,31 @@ header nav ul{
 	display: none;
 }
 
+#boxdown{
+	display: none;
+	position: absolute;
+	right: 0;
+	margin-right: 1px;
+	padding-top: 10px;
+	width: 15%;
+	float: right;
+	color: #fff;
+	text-decoration: none;
+	text-align: center;
+	background: #0c1e29;
+	padding-bottom: 30px;
+	border-radius: 0px 0px 10px 10px;
+}
+#boxdown a{
+	text-decoration: none; 
+	color: white
+}
+
+#boxdown a:hover{
+	color: #b42c07;
+}
+
+
 .pro{
 	border-radius: 100px;
 	margin-top: 0px;
@@ -119,9 +146,12 @@ header nav ul{
 	margin-top: 15px;
 }
 
+/*
 .active{
 	display: block;
 }
+*/
+
 
 
 .ul-li-a{
@@ -201,25 +231,49 @@ header nav ul{
 	color: #35424a;
 	font-size: 12px;
 }
-.button_cmnt{
-	color: white;
-	background-color: #0d305a;
-	height: 30px;
-	margin-top: 10px;
-	padding-left: 15px;
-	padding-right: 15px;
-	border-radius: 05px 05px 05px 05px;
+
+div .button_cmnt .fa{
+	color: #0d305a;
+	font-size: 20px;
+	margin-right: 08px;
 }
-.button_edits{
+
+.button_cmnt{
+	color: #0d305a;
 	height: 30px;
-	color: #ffffff;
-	background: #1e9901;
 	margin-top: 10px;
 	padding-left: 15px;
 	padding-right: 15px;
 	border-radius: 05px 05px 05px 05px;
 }
 
+div .button_edits .fa{
+	color: #1e9901;
+	font-size: 20px;
+	margin-right: 08px;
+}
+.button_edits{
+	height: 30px;
+	color: #1e9901;=
+	margin-top: 10px;
+	padding-left: 15px;
+	padding-right: 15px;
+	border-radius: 05px 05px 05px 05px;
+}
+
+div .button_delete .fa{
+	color: #a90918;
+	font-size: 20px;
+	margin-right: 08px;
+}
+#boxes .box0 .button_delete{
+	height: 30px;
+	color: #a90918;
+	margin-top: 10px;
+	padding-left: 15px;
+	padding-right: 15px;
+	border-radius: 05px 05px 05px 05px;
+}
 .button_post{
 	height: 30px;
 	color: #ffffff;
@@ -267,15 +321,7 @@ header nav ul{
 	font-size: 15px; margin-top: 10px;
 }
 
-#boxes .box0 .button_delete{
-	height: 30px;
-	color: #ffffff;
-	background: #a90918;
-	margin-top: 10px;
-	padding-left: 15px;
-	padding-right: 15px;
-	border-radius: 05px 05px 05px 05px;
-}
+
 
 /*########################################################################################################*/
 /*edit red flag and intervetion*/
@@ -574,10 +620,13 @@ footer{
 		width: 80%;
 	}
 
+	#boxdown{
+		font-size: 10px;
+	}
+
 	
 	
 }
-
 
 
 
@@ -592,22 +641,29 @@ footer{
 	}
 
 
-	/*header #branding,*/
-	header nav,
-	header nav li
-	{
-		float: right;
-		display: block;
-		width: 50%;
-
-	}
-
 	header a{
 		font-size: 10px;
 	}
 
 	header nav .a{
 		display: none;
+	}
+	header nav #name{
+		display: none;
+	}
+
+
+	/*header nav,
+	header nav li
+	{
+		float: right;
+		display: block;
+		width: 50%;
+
+	}*/
+
+	#boxdown{
+		width: 30%;
 	}
 
 	.pro{
@@ -698,23 +754,11 @@ footer{
 		width: 40%;
 	}
 
-	/*header #branding,*/
-	header nav,
-	header nav li
-	{
-		float: right;
-		display: block;
-		width: 60%;
-
-	}
 
 	/*No need of mob-menu again */
 
 	header a{
 		font-size: 12px;
-	}
-
-	#name{display: none;
 	}
 
 

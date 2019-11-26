@@ -8,7 +8,6 @@
 	<meta name="description" content="Learning deeply about using html5 and css">
 	<title>Bradcasting | Users home Page</title>
 	<link rel="stylesheet" type="text/css" href="../asserts/css/innerprofile.css" >
-	<link rel="stylesheet" type="text/css" href="../asserts/css/landing.css" >
 	<link rel="stylesheet" type="text/css" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
 </head>
 <body>
@@ -30,7 +29,7 @@
 				
 				
 				<i class="fa fa-bars menu" aria-hidden="true"></i>
-				<h id="name"> key Joshua </h> <img src="../asserts/img/profile.jpg" class="pro">
+				<img src="../asserts/img/profile.jpg" class="pro" id="drown"><h id="name"> key Joshua </h>
 
 
 				<ul id="ul1">
@@ -42,11 +41,10 @@
 					<li class="ul-li-a" ><a href="" class="a"><i class="fa fa-question-circle"></i>Help</a></li>
 				</ul>
 				
-				<ul id="ul">
+				<ul id="ul"><!-- 
 					<li class="ul-li-a" ><a href="user_profile.html" ><i class="fa fa-user-circle" aria-hidden="true"></i>Profile</a></li>
 					<li class="ul-li-a"><a href="user_signin.html"><i class="fa fa-sign-out"></i>Logout</a></li>
-
-					<li class="ul-li-a"><a href="user_account.html"><i class="fa fa-address-book-o"></i>Account</a></li>
+					<li class="ul-li-a"><a href="user_account.html"><i class="fa fa-address-book-o"></i>Account</a></li> -->
 				</ul>
 
 
@@ -55,21 +53,28 @@
 		</div>
 	</header>
 
+	
+
 	<section id="boxes">
+		<div id="boxdown">
+			<a href="user_profile.html" ><p><i class="fa fa-user-circle" aria-hidden="true"></i>PROFILE&nbsp;&nbsp;&nbsp;</p></a><br>
+			<a href="user_account.html" ><p><i class="fa fa-address-book-o"></i></i>ACCOUNT</p></a><br>
+			<a href="user_signin.html" ><p><i class="fa fa-sign-out"></i>LOGOUT&nbsp;&nbsp;</p></a>
+		</div>
 		<div class="container">
-
-
-
-
 
 
 			<div class="box0">
 
+				<!-- <div class="boxdown">
+					<p>kkkkkkkkk</p>
+				</div> -->
+
 				<div class="box01">
-					<a href="user_home.html#daftrecords"> <button class="my_flag ac"  id="acs"><span class="highlight">133</span><br>Draft</button> </a>
-					<a href="user_home.html#dealrecords"> <button class="my_flag in"  id="ins"><span class="highlight">011</span><br>Deal on</button> </a>
-					<a href="user_home.html#resolvedrecords"> <button class="my_flag cr"  id="crs"><span class="highlight">27</span><br>Resolved</button> </a>
-					<a href="user_home.html#rejectedrecords"> <button class="my_flag dl"  id="dls"><span class="highlight">69</span><br>Rejected</button>
+					<a href="user_home.html#daftrecords"> <button class="my_flag ac"  id="acs"><i id="inos" class=" fa fa-refresh"></i>133<br>Draft</button> </a>
+					<a href="user_home.html#dealrecords"> <button class="my_flag in"  id="ins"><i class="fa fa-exclamation"></i>011<br>Deal on</button> </a>
+					<a href="user_home.html#resolvedrecords"> <button class="my_flag cr"  id="crs"><i class="fa fa-check"></i>27<br>Resolved</button> </a>
+					<a href="user_home.html#rejectedrecords"> <button class="my_flag dl"  id="dls"><i class="fa fa-times"></i>69<br>Rejected</button>
 				</div>
 
 				<div class="box01">
@@ -146,7 +151,7 @@
 
 			<div class="box1">
 				<button class="my_flag"><span class="highlight">201</span> Daily_Flag</button>
-				<button class="my_flag"><span class="highlight">87</span> Daily_Intv</button>
+				<button class="my_flag"><span class="highlight">087</span> Daily_Intv</button>
 				<a href="user_profile.html#exactplace"><button id="flag" class="create">Create Flag</button></a>
 				<a href="user_profile.html#exactplace"><button id="intv" class="create">Create Intv</button></a>
 			</div>

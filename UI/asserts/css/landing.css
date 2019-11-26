@@ -27,7 +27,7 @@ header{
 
 
 header #branding{
-	font-size: 15px;
+	font-size: 20px;
 	float: left;
 }
 
@@ -46,20 +46,20 @@ header a{
 	color: #ffffff;
 	text-decoration: none;
 	text-transform: uppercase;
-	font-size: 12px;
+	font-size: 16px;
 }
 
 header li{
 	float: left;
 	display: inline;
-	margin-top: 10px;
+	margin-top: 40px;
 	padding: 0 20px 0 20px;
 } 
 
 header nav .menu{
 
 	display: none;
-	font-size: 30px;
+	font-size: 50px;
 	margin-left: 150px;
 	color: #e8491d;
 	margin-top: 05px;
@@ -71,29 +71,28 @@ header nav{
 	margin-bottom: 10px;
 }
 
-#name{
-	font-size: 08px;
-}
-
 .highlight, header .current a{
 	color: #dd5833;
 	font-weight:bold;
 }
 
 header a:hover{
-	padding: 10px;
+	padding-top: 06px;
+	padding-bottom: 06px;
 	color: #e8491d;
 	background-color: rgba(0, 0, 0, 0.5);
-	border-radius: 10px 10px 10px 10px;
+	border-radius: 08px 08px 08px 08px;
 }
 
-
-/*Gobally Stuff*/
 .container{
 	min-height: 100%;
 	width: 95%;
 	margin: auto;
 	overflow: hidden;
+}
+
+.container .brand{
+	font-size: 30px;
 }
 
 ul{
@@ -113,7 +112,8 @@ ul{
 }
 
 .button_3{
-	height: 30px;
+	height: 50px;
+	font-size: 20px;
 	color: #ffffff;
 	background: #e8491d;
 	opacity: 0.6;
@@ -132,13 +132,13 @@ ul{
 }
 
 .dark{
-	padding: 20px;
+	padding: 50px;
 	margin-top: 15px;
 	margin-bottom: 15px;
 	color: #ffffff;
 	background: #e8491d;
 	opacity: 0.6;
-	font-size: 15px;
+	font-size: 18px;
 	border-radius: 10px 10px 10px 10px;
 }
 
@@ -184,6 +184,11 @@ aside#sidebar2{
 	width: 100%;
 }
 
+.mySlideso img{
+	margin-top: 100px;
+	width: 100%;
+}
+
 
 aside#sidebar3{
 	width: 60%;
@@ -208,14 +213,16 @@ aside#sidebar .register input{
 
   background: transparent;
   text-align:center;
-  margin-top: 15px;
-  color: #ffffff;
-  width: 90%;
+  background: #fff;
+  margin-top: 20px;
+  color: #000;
+  width: 100%;
   height: 10px;
   padding: 5px;
 }
 
 aside#sidebar .dark h3{
+	font-size: 25px;
 	color: #35424a;
 	text-align: center;
 }
@@ -256,6 +263,22 @@ footer{
 	background: url(../img/backgrounda.gif);
 	background-repeat: no-repeat;
 	background-size: cover;
+}
+
+@media(max-width: 900px){
+	.dark{
+		padding: 30px;
+	}
+}
+
+@media(max-width: 800px){
+	.dark{
+		padding: 25px;
+	}
+
+	aside#sidebar2{
+		width: 50%;
+	}
 }
 
 
