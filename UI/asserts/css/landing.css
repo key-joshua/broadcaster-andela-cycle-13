@@ -223,14 +223,13 @@ aside#sidebar .register input{
 
 aside#sidebar .dark h3{
 	font-size: 25px;
-	color: #35424a;
+	color: #fff;
 	text-align: center;
 }
 
 
-aside#sidebar .register h5 span a{
+aside#sidebar .register h5 span{
 	color: #35424a;
-	text-decoration: none;
 }
 
 #index-footer{
