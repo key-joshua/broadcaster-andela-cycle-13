@@ -3,15 +3,13 @@ body{
 	padding: 0;
 	margin: 0;
 	min-height: 100%;
-	background: #35424a;
+	background-color: rgba(0, 0, 0, 0.1);
 }
-
-
 
 .bgd{
 	height: 100%;
 	bottom: 0px;
-	background: url(../img/backgroundb.png);
+	background: url(../img/backgrounds.png);
 	background-repeat: no-repeat;
 	background-size: cover;
 }
@@ -27,7 +25,7 @@ header{
 
 
 header #branding{
-	font-size: 15px;
+	font-size: 20px;
 	float: left;
 }
 
@@ -46,23 +44,23 @@ header a{
 	color: #ffffff;
 	text-decoration: none;
 	text-transform: uppercase;
-	font-size: 12px;
+	font-size: 16px;
 }
 
 header li{
 	float: left;
 	display: inline;
-	margin-top: 10px;
+	margin-top: 20px;
 	padding: 0 20px 0 20px;
 } 
 
 header nav .menu{
 
 	display: none;
-	font-size: 30px;
+	font-size: 50px;
 	margin-left: 150px;
 	color: #e8491d;
-	margin-top: 00px;
+	margin-top: 05px;
 }
 
 header nav{
@@ -71,22 +69,28 @@ header nav{
 	margin-bottom: 10px;
 }
 
-#name{
-	font-size: 08px;
-}
-
 .highlight, header .current a{
 	color: #dd5833;
 	font-weight:bold;
 }
 
 header a:hover{
-	padding: 10px;
+	padding-top: 06px;
+	padding-bottom: 06px;
 	color: #e8491d;
 	background-color: rgba(0, 0, 0, 0.5);
-	border-radius: 10px 10px 10px 10px;
+	border-radius: 08px 08px 08px 08px;
 }
 
+
+header nav #name{
+	font-size: 14px;
+}
+
+.highlight, header .current a{
+	color: #dd5833;
+	font-weight:bold;
+}
 
 /*Gobally Stuff*/
 .container{
@@ -108,6 +112,31 @@ header nav ul{
 	display: none;
 }
 
+#boxdown{
+	display: none;
+	position: absolute;
+	right: 0;
+	margin-right: 1px;
+	padding-top: 10px;
+	width: 15%;
+	float: right;
+	color: #fff;
+	text-decoration: none;
+	text-align: center;
+	background: #0c1e29;
+	padding-bottom: 30px;
+	border-radius: 0px 0px 10px 10px;
+}
+#boxdown a{
+	text-decoration: none; 
+	color: white
+}
+
+#boxdown a:hover{
+	color: #b42c07;
+}
+
+
 .pro{
 	border-radius: 100px;
 	margin-top: 0px;
@@ -117,10 +146,11 @@ header nav ul{
 	margin-top: 15px;
 }
 
+/*
 .active{
 	display: block;
 }
-
+*/
 
 .ul-li-a{
 	margin-top: 25px;
@@ -151,7 +181,7 @@ header nav ul{
 
 #boxes .box0 .bio{
 	font-size: 15px;
-	padding: 05px;
+	padding: 20px;
 	text-align: left;
 	background-color: rgba(0, 0, 0, 0.2);
 	border-radius: 10px 10px 10px 10px;
@@ -381,43 +411,65 @@ aside .forms .button{
 
 .all{
 	color: black;
-	background: #35424a;
 }
 
 
 .ac{
-	color: black;
+	color: #485e6c;
 }
 
 .in{
-	color: black;
-	background: #0d305a;
+	color: #000;
+
 }
 
 
 .cr{
-	background: green;
-	color: black;
+	color: #0d8f00;
 }
 
 .dl{
-	background: #851d01;
-	color: black;
+	color: #d60000;
+}
+
+a .ac .fa{
+	color: #485e6c;
+	font-size: 20px;
+	margin-right: 08px;
+}
+
+a .in .fa{
+	color: #000;
+	font-size: 20px;
+	margin-right: 08px;
+}
+
+
+a .cr .fa{
+	color: #0d8f00;
+	font-size: 20px;
+	margin-right: 08px;
+}
+
+a .dl .fa{
+	color: #d60000;
+	font-size: 20px;
+	margin-right: 08px;
 }
 
 #boxes .box01 .my_flag{
-	font-size: 12px;
-	height: 65px;
-	width: 65px;
+	font-size: 15px;
+	height: 90px;
+	width: 90px;
 	margin-right: 0px;
 	border-radius: 100px;
 }
 
 
 #boxes .box01 .my_flags{
-	font-size: 12px;
-	height: 50px;
-	width: 100px;
+	font-size: 16px;
+	height: 60px;
+	width: 120px;
 	color: #ffffff;
 	background: #485e6c;
 	margin-right: 10px;
@@ -438,9 +490,9 @@ aside .forms .button{
 }
 
 #boxes .box1 .my_flag{
-	font-size: 12px;
-	height: 80px;
-	width: 80px;
+	font-size: 16px;
+	height: 110px;
+	width: 110px;
 	color: #ffffff;
 	background: #35424a;
 	margin-right: 40px;
@@ -450,9 +502,11 @@ aside .forms .button{
 
 #boxes .box1 .create{
 
-	height: 40px;
+	height: 50px;
+	width: 100px;
 	color: #ffffff;
-	background: #0d305a;
+	background: #35424a;
+	font-size: 15px;
 	margin-right: 40px;
 	padding-left: 05px;
 	padding-right: 05px;
@@ -470,15 +524,13 @@ aside .forms .button{
 }
 
 #boxes .box1 #dlt{
-
-	background: green;
+	color: green;
 }
 
 #boxes .box1 .delete{
 
 	height: 40px;
-	color: #ffffff;
-	background: red;
+	color: red;
 	margin-top: 250px;
 	margin-bottom: 100px;
 	margin-right: 40px;
@@ -545,11 +597,11 @@ aside .forms .button{
    border-radius: 10px;
    color: #0d305a;
    margin: auto;
-   font-size: 10px;
+   font-size: 13px;
 }
 .box2 li p a:hover{
    color: #fff;
-   background:#008CBA; 
+   background:#35424a; 
 }
 .box2 h3{
   margin-top: -5px;
@@ -614,6 +666,21 @@ footer{
 @media(max-width: 1100px){
 	.box2 h3{
 		width: 50%;
+	}
+
+	#boxdown{
+		font-size: 12px;
+	}
+
+	header a{
+		font-size: 12px;
+	}
+
+	header nav #name{
+		font-size: 10px;
+	}
+	header #branding{
+		font-size: 16px;
 	}
 }
 
@@ -749,16 +816,16 @@ footer{
 	}
 
 	#boxes .box1 .my_flag{
-		margin-right: 20px;
+		margin-right: 10px;
 		font-size: 10px;
-		height: 70px;
-		width: 70px;
+		height: 90px;
+		width: 90px;
 	}
 
 	#boxes .box1 .create{
-		font-size: 10px;
-		margin-right: 20px;
-		height: 30px;
+		margin: auto;
+		font-size: 15px;
+		height: 50px;
 	}
 
 	
@@ -768,7 +835,14 @@ footer{
 		margin-top: -5em;
 		font-size: 11px;
 	}
+
+	header nav #name{
+		display: none;
+	}
 	
+	#boxdown{
+		font-size: 10px;
+	}
 	
 }
 
@@ -785,14 +859,19 @@ footer{
 		font-size: 15px;
 	}
 
-	header nav,
+	/*header nav,
 	header nav li
 	{
 		float: right;
 		display: block;
 		width: 50%;
 
+	}*/
+
+	#boxdown{
+		width: 30%;
 	}
+
 
 	header a{
 		font-size: 10px;
@@ -809,6 +888,9 @@ footer{
 	header nav .menu{
 		display: inline-block;
 	}
+	header nav #name{
+		display: none;
+	}
 
 	.active{
 		display: block;
@@ -824,20 +906,19 @@ footer{
 		font-size: 08px;
 		margin-left: 10px;
 	}
-
-	#boxes .box1 .my_flag{
-		margin-right: 20px;
+#boxes .box1 .my_flag{
+		margin-right: 10px;
 		font-size: 10px;
-		height: 70px;
-		width: 70px;
+		height: 90px;
+		width: 90px;
 	}
 
 	#boxes .box1 .create{
-		font-size: 10px;
-		margin-right: 20px;
-		height: 30px;
+		display: block;
+		font-size: 15px;
+		height: 50px;
 	}
-
+	
 	#boxes .box2{
 		font-size: 10px;
 		margin-left: 0px;
@@ -912,24 +993,12 @@ footer{
 		width: 40%;
 	}
 
-	/*header #branding,*/
-	header nav,
-	header nav li
-	{
-		float: right;
-		display: block;
-		width: 60%;
-
-	}
-
-	/*No need of mob-menu again */
-
 	header a{
-		font-size: 12px;
+		font-size: 10px;
 	}
 
 	aside h3{
-		font-size: 11px;
+		font-size: 10px;
 	}
 
 	#name{
@@ -940,14 +1009,8 @@ footer{
 	#boxes .box1 .my_flag{
 		margin-right: 10px;
 		font-size: 10px;
-		height: 60px;
-		width: 60px;
-	}
-
-	#boxes .box1 .create{
-		font-size: 10px;
-		margin-right: 10px;
-		height: 25px;
+		height: 90px;
+		width: 90px;
 	}
 
 
@@ -994,13 +1057,3 @@ footer{
 
 /*media query*/
 /*About 450px size*/
-
-@media(max-width: 370px){
-	
-	  #boxes .box1 .my_flag{
-		margin-right: 10px;
-		font-size: 10px;
-		height: 40px;
-		width: 40px;
-	}
-}

@@ -65,8 +65,8 @@ header nav{
 }
 
 
-#name{
-	font-size: 08px;
+header nav #name{
+	font-size: 14px;
 }
 
 .highlight, header .current a{
@@ -201,30 +201,57 @@ header nav ul{
 	background: #35424a;
 }
 
-.ac{
+.alls{
 	color: black;
 }
 
-.in{
-	color: black;
-	background: #0d305a;
+
+.acs{
+	color: #485e6c;
+}
+
+.ins{
+	color: #000;
+
 }
 
 
-.cr{
-	background: green;
-	color: black;
+.crs{
+	color: #0d8f00;
 }
 
-.dl{
-	background: #851d01;
-	color: black;
+.dls{
+	color: #d60000;
 }
 
+a .acs .fa{
+	color: #485e6c;
+	font-size: 20px;
+	margin-right: 08px;
+}
+
+a .ins .fa{
+	color: #000;
+	font-size: 20px;
+	margin-right: 08px;
+}
+
+
+a .crs .fa{
+	color: #0d8f00;
+	font-size: 20px;
+	margin-right: 08px;
+}
+
+a .dls .fa{
+	color: #d60000;
+	font-size: 20px;
+	margin-right: 08px;
+}
 #boxes .box01 .my_flag{
 	font-size: 11px;
-	height: 60px;
-	width: 60px;
+	height: 100px;
+	width: 100px;
 	margin-right: 0px;
 	border-radius: 100px;
 }
@@ -273,7 +300,6 @@ header nav ul{
 	width: 60%;
 	padding: 10px;
 }
-
 .box2 ul {
   list-style-type: none;
   padding: 0;
@@ -294,6 +320,12 @@ header nav ul{
   /*border-radius: 50px;*/
 }
 
+.box2 li .userpic img {
+  width: 50px;
+  height: 50px;
+  border-radius: 100px;
+}
+
 .box2 li p {
 	color: #35424a;
 	margin: auto;
@@ -312,19 +344,18 @@ header nav ul{
    border-radius: 10px;
    color: #0d305a;
    margin: auto;
-   font-size: 10px;
+   font-size: 13px;
 }
 .box2 li p a:hover{
    color: #fff;
-   background:#008CBA; 
+   background:#35424a; 
 }
 .box2 h3{
-  width: 40%;
   margin-top: -5px;
   margin-bottom: 10px;
   border-bottom:2px solid #000;
+  width: 40%;
 }
-
 
 .sub0{
 	display: block;
@@ -727,6 +758,8 @@ footer{
 	    .container{
 		min-width: 95%;
 	}
+
+	.admin{display: none;}
 
 	header #branding{
 		margin-top: 0px;

@@ -1,5 +1,7 @@
 const ul = document.getElementById("ul");
 const ul1 = document.getElementById("ul1");
+const ul2 = document.getElementById("boxdown");
+const trigger01 = document.getElementById("drown");
 const trigger1 = document.querySelector('.pro');
 const trigger2 = document.querySelector('.menu');
 
@@ -15,10 +17,22 @@ let show = (redflags,intervetions,element) =>
 }
 
 
+
+
+const dropdown2 = () =>{
+	ul2.style.display = 'block';
+}
+
+const noDropdown2 = () =>{
+	ul2.style.display = 'none';
+}
+
 const dropdown = () =>{
 	if(ul.classList.contains('active')){
+		noDropdown2();
 	    ul.classList.remove('active');
 	}else{
+		dropdown2();
         ul.classList.add('active');
 	}
 }

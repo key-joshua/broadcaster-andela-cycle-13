@@ -5,19 +5,19 @@ const deala = document.getElementById("deal");
 const resolva = document.getElementById("resolva");
 const rejecta = document.getElementById("rejecta");
 
-const btnalla = document.getElementById("alls");
+// const btnalla = document.getElementById("alls");
 const btndrafta = document.getElementById("acs");
 const btndeala = document.getElementById("ins");
 const btnresolva = document.getElementById("crs");
 const bntrejecta = document.getElementById("dls");
 
-const showAll = () =>{
-	alla.style.display = 'block';
-	drafta.style.display = 'none';
-	deala.style.display = 'none';
-	resolva.style.display = 'none';
-	rejecta.style.display = 'none';
-}
+// const showAll = () =>{
+// 	alla.style.display = 'block';
+// 	drafta.style.display = 'none';
+// 	deala.style.display = 'none';
+// 	resolva.style.display = 'none';
+// 	rejecta.style.display = 'none';
+// }
 
 const showDraft = () =>{
 	alla.style.display = 'none';
@@ -55,21 +55,34 @@ const showReject = () =>{
 }
 
 
-btnalla.addEventListener('click',showAll);
+// btnalla.addEventListener('click',showAll);
 btndrafta.addEventListener('click',showDraft);
 btndeala.addEventListener('click',showDeal);
 btnresolva.addEventListener('click',showResolv);
 bntrejecta.addEventListener('click',showReject);
 
 
+const ul2 = document.getElementById("boxdown");
+const trigger01 = document.getElementById("drown");
 const trigger1 = document.querySelector('.pro');
 const trigger2 = document.querySelector('.menu');
 
 
+
+const dropdown2 = () =>{
+	ul2.style.display = 'block';
+}
+
+const noDropdown2 = () =>{
+	ul2.style.display = 'none';
+}
+
 const dropdown = () =>{
 	if(ul.classList.contains('active')){
+		noDropdown2();
 	    ul.classList.remove('active');
 	}else{
+		dropdown2();
         ul.classList.add('active');
 	}
 }
