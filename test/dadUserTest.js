@@ -14,6 +14,7 @@ describe('my Testing suite', () => {
       .set('Authorization', adminToken)
       .end((error, response) => {
         expect(response).to.have.status([200]);
+        expect(response.body.status).to.be.equal(200);
         expect(response.body).to.be.a('object');
         expect(response.body).to.have.property('status');
         expect(response.body).to.have.property('message');
@@ -28,6 +29,7 @@ describe('my Testing suite', () => {
       .set('Authorization', userToken)
       .end((error, response) => {
         expect(response).to.have.status([200]);
+        expect(response.body.status).to.be.equal(200);
         expect(response.body).to.have.property('status');
         expect(response.body).to.have.property('message');
         expect(response.body).to.have.property('data');
@@ -40,6 +42,7 @@ describe('my Testing suite', () => {
       .get('/api/v1/users/')
       .end((error, response) => {
         expect(response).to.have.status([401]);
+        expect(response.body.status).to.be.equal(401);
         expect(response.body).to.have.property('status');
         expect(response.body).to.have.property('message');
         done(error);

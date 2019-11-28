@@ -18,6 +18,7 @@ describe('my Testing suite', () => {
       .send(impDB[18])
       .end((error, response) => {
         expect(response).to.have.status([400]);
+        expect(response.body.status).to.be.equal(400);
         expect(response.body).to.be.a('object');
         expect(response.body).to.have.property('status');
         expect(response.body).to.have.property('message');
@@ -32,6 +33,7 @@ describe('my Testing suite', () => {
       .send(impDB[19])
       .end((error, response) => {
         expect(response).to.have.status([400]);
+        expect(response.body.status).to.be.equal(400);
         expect(response.body).to.be.a('object');
         expect(response.body).to.have.property('status');
         expect(response.body).to.have.property('message');
@@ -46,6 +48,7 @@ describe('my Testing suite', () => {
       .send(impDB[20])
       .end((error, response) => {
         expect(response).to.have.status([400]);
+        expect(response.body.status).to.be.equal(400);
         expect(response.body).to.be.a('object');
         expect(response.body).to.have.property('status');
         expect(response.body).to.have.property('message');
@@ -65,6 +68,7 @@ describe('my Testing suite', () => {
       .attach('videos')
       .end((error, response) => {
         expect(response).to.have.status([201]);
+        expect(response.body.status).to.be.equal(201);
         expect(response.body).to.be.a('object');
         expect(response.body).to.have.property('status');
         expect(response.body).to.have.property('message');
@@ -72,7 +76,7 @@ describe('my Testing suite', () => {
         done(error);
       });
   });
-  
+
   it('users should be able to create record with images and videos when provide token', (done) => {
     router()
       .post('/api/v1/red-flags/')
@@ -85,6 +89,7 @@ describe('my Testing suite', () => {
       .attach('videos', 'server/v1/api/models/uploadedFiles/sample.mp4')
       .end((error, response) => {
         expect(response).to.have.status([201]);
+        expect(response.body.status).to.be.equal(201);
         expect(response.body).to.be.a('object');
         expect(response.body).to.have.property('status');
         expect(response.body).to.have.property('message');
@@ -92,7 +97,7 @@ describe('my Testing suite', () => {
         done(error);
       });
   });
-  
+
   it('users should be able to create record with images and videos when provide token', (done) => {
     router()
       .post('/api/v1/red-flags/')
@@ -105,6 +110,7 @@ describe('my Testing suite', () => {
       .attach('videos', 'server/v1/api/models/uploadedFiles/sample.mp4')
       .end((error, response) => {
         expect(response).to.have.status([201]);
+        expect(response.body.status).to.be.equal(201);
         expect(response.body).to.be.a('object');
         expect(response.body).to.have.property('status');
         expect(response.body).to.have.property('message');
@@ -125,6 +131,7 @@ describe('my Testing suite', () => {
       .attach('videos', 'server/v1/api/models/uploadedFiles/sample.mp4')
       .end((error, response) => {
         expect(response).to.have.status([201]);
+        expect(response.body.status).to.be.equal(201);
         expect(response.body).to.be.a('object');
         expect(response.body).to.have.property('status');
         expect(response.body).to.have.property('message');
@@ -145,6 +152,7 @@ describe('my Testing suite', () => {
       .attach('videos', 'server/v1/api/models/uploadedFiles/sample.mp4')
       .end((error, response) => {
         expect(response).to.have.status([201]);
+        expect(response.body.status).to.be.equal(201);
         expect(response.body).to.be.a('object');
         expect(response.body).to.have.property('status');
         expect(response.body).to.have.property('message');
@@ -165,6 +173,7 @@ describe('my Testing suite', () => {
       .attach('videos', 'server/v1/api/models/uploadedFiles/sample.mp4')
       .end((error, response) => {
         expect(response).to.have.status([201]);
+        expect(response.body.status).to.be.equal(201);
         expect(response.body).to.be.a('object');
         expect(response.body).to.have.property('status');
         expect(response.body).to.have.property('message');
@@ -180,6 +189,7 @@ describe('my Testing suite', () => {
       .send(impDB[21])
       .end((error, response) => {
         expect(response).to.have.status([201]);
+        expect(response.body.status).to.be.equal(201);
         expect(response.body).to.be.a('object');
         expect(response.body).to.have.property('status');
         expect(response.body).to.have.property('message');

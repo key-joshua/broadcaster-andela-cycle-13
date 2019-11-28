@@ -12,6 +12,7 @@ describe('my Testing suite', () => {
       .send(impDB[15])
       .end((error, response) => {
         expect(response).to.have.status([200]);
+        expect(response.body.status).to.be.equal(200);
         expect(response.body).to.be.a('object');
         expect(response.body).to.have.property('status');
         expect(response.body).to.have.property('message');
@@ -26,6 +27,7 @@ describe('my Testing suite', () => {
       .send(impDB[3])
       .end((error, response) => {
         expect(response).to.have.status([400]);
+        expect(response.body.status).to.be.equal(400);
         expect(response.body).to.have.property('status');
         expect(response.body).to.have.property('message');
         done(error);
@@ -38,6 +40,7 @@ describe('my Testing suite', () => {
       .send(impDB[4])
       .end((error, response) => {
         expect(response).to.have.status([400]);
+        expect(response.body.status).to.be.equal(400);
         expect(response.body).to.have.property('status');
         expect(response.body).to.have.property('message');
         done(error);
@@ -50,6 +53,7 @@ describe('my Testing suite', () => {
       .send(impDB[7])
       .end((error, response) => {
         expect(response).to.have.status([400]);
+        expect(response.body.status).to.be.equal(400);
         expect(response.body).to.have.property('status');
         expect(response.body).to.have.property('message');
         done(error);
@@ -62,6 +66,7 @@ describe('my Testing suite', () => {
       .send(impDB[13])
       .end((error, response) => {
         expect(response).to.have.status([401]);
+        expect(response.body.status).to.be.equal(401);
         expect(response.body).to.have.property('status');
         expect(response.body).to.have.property('message');
         done(error);
@@ -74,6 +79,7 @@ describe('my Testing suite', () => {
       .send(impDB[14])
       .end((error, response) => {
         expect(response).to.have.status([401]);
+        expect(response.body.status).to.be.equal(401);
         expect(response.body).to.have.property('status');
         expect(response.body).to.have.property('message');
         done(error);
