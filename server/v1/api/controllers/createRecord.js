@@ -1,10 +1,8 @@
-import dotenv from 'dotenv';
 import jwt from 'jsonwebtoken';
 import impData from '../models/DB';
 import imphelp from '../helpers/createHelper';
 import verfier from '../helpers/token';
 
-dotenv.config();
 const createSingleRecords = {
   createOneRecords(req, res) {
     const decUserDetail = verfier.userDetails(req.headers.authorization);
