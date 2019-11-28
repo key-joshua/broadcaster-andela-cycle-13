@@ -1,8 +1,8 @@
 
 .nyc_output/
 node_modules/
+coverage/
 .eslintrc.json
 # .env
 # .DS_Store
 # package-lock.json
-# coverage
