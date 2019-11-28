@@ -22,12 +22,12 @@
       <div class='fl pad1y space-right2'>
         <span class="strong">100% </span>
         <span class="quiet">Statements</span>
-        <span class='fraction'>40/40</span>
+        <span class='fraction'>37/37</span>
       </div>
       <div class='fl pad1y space-right2'>
         <span class="strong">100% </span>
         <span class="quiet">Branches</span>
-        <span class='fraction'>14/14</span>
+        <span class='fraction'>12/12</span>
       </div>
       <div class='fl pad1y space-right2'>
         <span class="strong">100% </span>
@@ -94,44 +94,37 @@
 <a name='L46'></a><a href='#L46'>46</a>
 <a name='L47'></a><a href='#L47'>47</a>
 <a name='L48'></a><a href='#L48'>48</a>
-<a name='L49'></a><a href='#L49'>49</a>
-<a name='L50'></a><a href='#L50'>50</a>
-<a name='L51'></a><a href='#L51'>51</a>
-<a name='L52'></a><a href='#L52'>52</a></td><td class="line-coverage quiet"><span class="cline-any cline-yes">1x</span>
+<a name='L49'></a><a href='#L49'>49</a></td><td class="line-coverage quiet"><span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-yes">6x</span>
-<span class="cline-any cline-yes">6x</span>
-<span class="cline-any cline-yes">6x</span>
-<span class="cline-any cline-yes">6x</span>
+<span class="cline-any cline-yes">10x</span>
+<span class="cline-any cline-yes">10x</span>
+<span class="cline-any cline-yes">10x</span>
+<span class="cline-any cline-yes">10x</span>
+<span class="cline-any cline-yes">10x</span>
+<span class="cline-any cline-yes">3x</span>
+<span class="cline-any cline-yes">3x</span>
+<span class="cline-any cline-yes">3x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">6x</span>
-<span class="cline-any cline-yes">6x</span>
+<span class="cline-any cline-yes">10x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">7x</span>
+<span class="cline-any cline-yes">6x</span>
 <span class="cline-any cline-yes">5x</span>
 <span class="cline-any cline-yes">5x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">4x</span>
-<span class="cline-any cline-yes">4x</span>
+<span class="cline-any cline-yes">6x</span>
+<span class="cline-any cline-yes">5x</span>
+<span class="cline-any cline-yes">5x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">3x</span>
-<span class="cline-any cline-yes">2x</span>
-<span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">2x</span>
-<span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">3x</span>
+<span class="cline-any cline-yes">7x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -142,9 +135,10 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">3x</span>
-<span class="cline-any cline-yes">3x</span>
-<span class="cline-any cline-yes">3x</span>
+<span class="cline-any cline-yes">7x</span>
+<span class="cline-any cline-yes">7x</span>
+<span class="cline-any cline-yes">7x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">1x</span>
@@ -152,50 +146,47 @@
 import jwt from 'jsonwebtoken';
 import impData from '../models/DB';
 import imphelp from '../helpers/createHelper';
+import verfier from '../helpers/token';
 &nbsp;
 dotenv.config();
 const createSingleRecords = {
   createOneRecords(req, res) {
-    const receive_token_from_header = req.headers.authorization;
-    const decoded_token_in_the_way_to_obtain_user_details = jwt.verify(receive_token_from_header, process.env.SECRET_KEY);
+    const decUserDetail = verfier.userDetails(req.headers.authorization);
     const { createdBy, title, type, latitude, longitude, comment } = req.body;
-&nbsp;
-    const ckTitle = imphelp.check_title_if_is_empty(title);
-    if (ckTitle) return res.status(400).json({ status: 400, message: `Hey ${decoded_token_in_the_way_to_obtain_user_details.username} record title is needed !!` });
-&nbsp;
-    const ckType = imphelp.check_type_if_is_empty(type);
-    if (ckType) return res.status(400).json({ status: 400, message: `Hey ${decoded_token_in_the_way_to_obtain_user_details.username} record type is needed !!` });
-&nbsp;
-    const ckComment = imphelp.check_comment_if_is_empty(comment);
-    if (ckComment) return res.status(400).json({ status: 400, message: `Hey ${decoded_token_in_the_way_to_obtain_user_details.username} record comment is needed !!` });
-&nbsp;
-    let imgs;
-    let vids;
-    if (req.files) {
-      if (req.files.images) {
-        const imgsPath = req.files.images.map(({ path }) =&gt; path);
-        imgs = imgsPath.join(',  ');
-      }
-      if (req.files.videos) {
-        const vidsPath = req.files.videos.map(({ path }) =&gt; path);
-        vids = vidsPath.join(',  ');
-      }
+    const createValidate = imphelp.schemaCreate(req.body);
+    if (createValidate.error) {
+      const mess = createValidate.error.details[0].message;
+      const messUser = mess.replace(/\"/g, '');
+      res.status(400).send({ status: 400, message: messUser });
     }
-&nbsp;
-    const readyDatas = {
-      userId: decoded_token_in_the_way_to_obtain_user_details.id,
-      createdBy: createdBy || decoded_token_in_the_way_to_obtain_user_details.username,
-      title: title,
-      type: type,
-      latitude: latitude,
-      longitude: longitude,
-      images: imgs,
-      videos: vids,
-      comment: comment,
-    };
-    impData.createe(readyDatas);
-    const data = impData.fetchLastCreatedRecord(readyDatas.userId);
-    res.status(201).json({ status: 201, message: `Hy ${decoded_token_in_the_way_to_obtain_user_details.username} your record has created successfully on ${imphelp.created}`, record: data });
+    if (!createValidate.error) {
+      let imgs;
+      let vids;
+      if (req.files) {
+        if (req.files.images) {
+          const imgsPath = req.files.images.map(({ path }) =&gt; path);
+          imgs = imgsPath.join(',  ');
+        }
+        if (req.files.videos) {
+          const vidsPath = req.files.videos.map(({ path }) =&gt; path);
+          vids = vidsPath.join(',  ');
+        }
+      }
+      const readyDatas = {
+        userId: decUserDetail.id,
+        createdBy: createdBy || decUserDetail.username,
+        title: title,
+        type: type,
+        latitude: latitude,
+        longitude: longitude,
+        images: imgs,
+        videos: vids,
+        comment: comment,
+      };
+      impData.createe(readyDatas);
+      const data = impData.fetchLastCreatedRecord(readyDatas.userId);
+      res.status(201).json({ status: 201, message: `Hy ${decUserDetail.username} your record has created successfully on ${imphelp.created}`, record: data });
+    }
   },
 };
 export default createSingleRecords;
@@ -205,7 +196,7 @@ export default createSingleRecords;
 </div><!-- /wrapper -->
 <div class='footer quiet pad2 space-top1 center small'>
   Code coverage
-  generated by <a href="https://istanbul.js.org/" target="_blank">istanbul</a> at Tue Nov 19 2019 18:21:22 GMT+0200 (Central Africa Time)
+  generated by <a href="https://istanbul.js.org/" target="_blank">istanbul</a> at Thu Nov 28 2019 19:23:34 GMT+0200 (Central Africa Time)
 </div>
 </div>
 <script src="..\..\..\..\..\prettify.js"></script>

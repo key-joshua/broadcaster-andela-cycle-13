@@ -22,12 +22,12 @@
       <div class='fl pad1y space-right2'>
         <span class="strong">100% </span>
         <span class="quiet">Statements</span>
-        <span class='fraction'>28/28</span>
+        <span class='fraction'>23/23</span>
       </div>
       <div class='fl pad1y space-right2'>
         <span class="strong">100% </span>
         <span class="quiet">Branches</span>
-        <span class='fraction'>10/10</span>
+        <span class='fraction'>8/8</span>
       </div>
       <div class='fl pad1y space-right2'>
         <span class="strong">100% </span>
@@ -37,7 +37,7 @@
       <div class='fl pad1y space-right2'>
         <span class="strong">100% </span>
         <span class="quiet">Lines</span>
-        <span class='fraction'>23/23</span>
+        <span class='fraction'>21/21</span>
       </div>
     </div>
     <p class="quiet">
@@ -76,11 +76,7 @@
 <a name='L28'></a><a href='#L28'>28</a>
 <a name='L29'></a><a href='#L29'>29</a>
 <a name='L30'></a><a href='#L30'>30</a>
-<a name='L31'></a><a href='#L31'>31</a>
-<a name='L32'></a><a href='#L32'>32</a>
-<a name='L33'></a><a href='#L33'>33</a>
-<a name='L34'></a><a href='#L34'>34</a></td><td class="line-coverage quiet"><span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-yes">1x</span>
+<a name='L31'></a><a href='#L31'>31</a></td><td class="line-coverage quiet"><span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-yes">1x</span>
@@ -88,22 +84,19 @@
 <span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-yes">6x</span>
 <span class="cline-any cline-yes">6x</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">6x</span>
 <span class="cline-any cline-yes">6x</span>
-<span class="cline-any cline-yes">5x</span>
-<span class="cline-any cline-yes">5x</span>
-<span class="cline-any cline-yes">4x</span>
-<span class="cline-any cline-yes">4x</span>
+<span class="cline-any cline-yes">3x</span>
+<span class="cline-any cline-yes">3x</span>
+<span class="cline-any cline-yes">3x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">6x</span>
 <span class="cline-any cline-yes">3x</span>
 <span class="cline-any cline-yes">3x</span>
 <span class="cline-any cline-yes">2x</span>
 <span class="cline-any cline-yes">2x</span>
 <span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -111,36 +104,34 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-neutral">&nbsp;</span></td><td class="text"><pre class="prettyprint lang-js">import dotenv from 'dotenv';
-import crypt from 'bcryptjs';
+<span class="cline-any cline-neutral">&nbsp;</span></td><td class="text"><pre class="prettyprint lang-js">import crypt from 'bcryptjs';
 import jwt from 'jsonwebtoken';
 import impData from '../models/DB';
-import imphelp from '../helpers/signupHelper';
+import Validator from '../helpers/validators';
 &nbsp;
 const signinUsers = {
   loginUser(req, res) {
     const { email, password } = req.body;
-&nbsp;
-    const ckEmail = imphelp.check_email_if_is_empty(email);
-    if (ckEmail) return res.status(400).json({ status: 400, message: 'Hey Insert email !!' });
-    const ckEmail1 = imphelp.check_email(email);
-    if (ckEmail1) return res.status(400).json({ status: 400, message: 'Hey you are using Invalid email !!' });
-    const ckPassword = imphelp.check_password_if_is_empty(password);
-    if (ckPassword) return res.status(400).json({ status: 400, message: 'Hey Insert password !!' });
-&nbsp;
-&nbsp;
-    const find_this_user = impData.check_if_email_exist(email);
-    if (!find_this_user) { res.status(401).json({ status: 401, message: 'Hy wrong email' }); } else {
-      crypt.compare(password, find_this_user.password, (err, result) =&gt; {
-        if (result) {
-          dotenv.config();
-          const tokens = jwt.sign(find_this_user, process.env.SECRET_KEY, { expiresIn: '24000h' });
-          res.status(200).json({ status: 200, message: `Hy ${find_this_user.username} your logged in successfully on ${imphelp.created}`, Token:  tokens  });
-        } else {
-          res.status(401).json({ status: 401, message: `Hy ${find_this_user.username} you are using wrong password ` });
-        }
-      });
+    const inValidate = Validator.schemaSignIn(req.body);
+    if (inValidate.error) {
+      const mess = inValidate.error.details[0].message;
+      const messUser = mess.replace(/\"/g, '');
+      res.status(400).send({ status: 400, message: messUser });
+    }
+    if (!inValidate.error) {
+      const findThisUser = impData.checkEmaiExist(email);
+      if (!findThisUser) { res.status(401).json({ status: 401, message: 'Hy wrong email' }); } else {
+        crypt.compare(password, findThisUser.password, (err, result) =&gt; {
+          if (result) {
+            const tokens = jwt.sign(findThisUser, process.env.SECRET_KEY, { expiresIn: '24000h' });
+            res.status(200).json({ status: 200, message: `Hy ${findThisUser.username} your logged in successfully on ${Validator.created}`, token: tokens });
+          } else {
+            res.status(401).json({ status: 401, message: `Hy ${findThisUser.username} you are using wrong password ` });
+          }
+        });
+      }
     }
   },
 };
@@ -151,7 +142,7 @@ export default signinUsers;
 </div><!-- /wrapper -->
 <div class='footer quiet pad2 space-top1 center small'>
   Code coverage
-  generated by <a href="https://istanbul.js.org/" target="_blank">istanbul</a> at Tue Nov 19 2019 18:21:22 GMT+0200 (Central Africa Time)
+  generated by <a href="https://istanbul.js.org/" target="_blank">istanbul</a> at Thu Nov 28 2019 19:23:34 GMT+0200 (Central Africa Time)
 </div>
 </div>
 <script src="..\..\..\..\..\prettify.js"></script>
