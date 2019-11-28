@@ -2,12 +2,13 @@ import chai, { expect } from 'chai';
 import chaiHttp from 'chai-http';
 import app from '../connection';
 import impDB from './allTestDB';
-import imptokelp from './tokenHelper';
+import imptokelp from '../server/v1/api/helpers/tokenHelper';
 
 chai.use(chaiHttp);
 const router = () => chai.request(app);
 describe('my Testing suite', () => {
   const userToken = imptokelp.userCreatedToken;
+  const adminToken = imptokelp.adminCreatedToken;
 
 
   it('users should not be able to create record when did not insert title of record', (done) => {
@@ -56,7 +57,7 @@ describe('my Testing suite', () => {
     router()
       .post('/api/v1/red-flags/')
       .set('Authorization', userToken)
-      .field('Content-Type', 'multipart/form-data')
+      .set('Content-Type', 'application/x-www-form-urlencoded')
       .field('title', 'obused girls')
       .field('type', 'red-flags')
       .field('comment', 'test')
@@ -71,12 +72,92 @@ describe('my Testing suite', () => {
         done(error);
       });
   });
+  
+  it('users should be able to create record with images and videos when provide token', (done) => {
+    router()
+      .post('/api/v1/red-flags/')
+      .set('Authorization', adminToken)
+      .set('Content-Type', 'application/x-www-form-urlencoded')
+      .field('title', 'Bad road')
+      .field('type', 'intervation')
+      .field('comment', 'testo')
+      .attach('images', 'server/v1/api/models/uploadedFiles/imga.png')
+      .attach('videos', 'server/v1/api/models/uploadedFiles/sample.mp4')
+      .end((error, response) => {
+        expect(response).to.have.status([201]);
+        expect(response.body).to.be.a('object');
+        expect(response.body).to.have.property('status');
+        expect(response.body).to.have.property('message');
+        expect(response.body).to.have.property('record');
+        done(error);
+      });
+  });
+  
+  it('users should be able to create record with images and videos when provide token', (done) => {
+    router()
+      .post('/api/v1/red-flags/')
+      .set('Authorization', adminToken)
+      .set('Content-Type', 'application/x-www-form-urlencoded')
+      .field('title', 'obused girls')
+      .field('type', 'red-flags')
+      .field('comment', 'test')
+      .attach('images', 'server/v1/api/models/uploadedFiles/imga.png')
+      .attach('videos', 'server/v1/api/models/uploadedFiles/sample.mp4')
+      .end((error, response) => {
+        expect(response).to.have.status([201]);
+        expect(response.body).to.be.a('object');
+        expect(response.body).to.have.property('status');
+        expect(response.body).to.have.property('message');
+        expect(response.body).to.have.property('record');
+        done(error);
+      });
+  });
 
   it('users should be able to create record with images and videos when provide token', (done) => {
     router()
       .post('/api/v1/red-flags/')
       .set('Authorization', userToken)
-      .field('Content-Type', 'multipart/form-data')
+      .set('Content-Type', 'application/x-www-form-urlencoded')
+      .field('title', 'obused girls')
+      .field('type', 'red-flags')
+      .field('comment', 'test')
+      .attach('images', 'server/v1/api/models/uploadedFiles/imga.png')
+      .attach('videos', 'server/v1/api/models/uploadedFiles/sample.mp4')
+      .end((error, response) => {
+        expect(response).to.have.status([201]);
+        expect(response.body).to.be.a('object');
+        expect(response.body).to.have.property('status');
+        expect(response.body).to.have.property('message');
+        expect(response.body).to.have.property('record');
+        done(error);
+      });
+  });
+
+  it('users should be able to create record with images and videos when provide token', (done) => {
+    router()
+      .post('/api/v1/red-flags/')
+      .set('Authorization', userToken)
+      .set('Content-Type', 'application/x-www-form-urlencoded')
+      .field('title', 'obused girls')
+      .field('type', 'red-flags')
+      .field('comment', 'test')
+      .attach('images', 'server/v1/api/models/uploadedFiles/imga.png')
+      .attach('videos', 'server/v1/api/models/uploadedFiles/sample.mp4')
+      .end((error, response) => {
+        expect(response).to.have.status([201]);
+        expect(response.body).to.be.a('object');
+        expect(response.body).to.have.property('status');
+        expect(response.body).to.have.property('message');
+        expect(response.body).to.have.property('record');
+        done(error);
+      });
+  });
+
+  it('users should be able to create record with images and videos when provide token', (done) => {
+    router()
+      .post('/api/v1/red-flags/')
+      .set('Authorization', userToken)
+      .set('Content-Type', 'application/x-www-form-urlencoded')
       .field('title', 'obused girls')
       .field('type', 'red-flags')
       .field('comment', 'test')

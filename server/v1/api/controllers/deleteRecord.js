@@ -1,28 +1,22 @@
-import dotenv from 'dotenv';
-import jwt from 'jsonwebtoken';
 import impData from '../models/DB';
-import impDataFromToken from '../helpers/token';
+import verfier from '../helpers/token';
 
-dotenv.config();
 const deleteOneRecord = {
   deleteRecord(req, res) {
-    const receive_token_from_header = req.headers.authorization;
-    const decoded_token_in_the_way_to_obtain_user_details = jwt.verify(receive_token_from_header, process.env.SECRET_KEY);
-
-    const recordId = parseInt(req.params.redflagids);
-    const data = impData.fetchOneRecord(recordId);
-    if (!recordId) {
-      return res.status(404).json({ status: 404, message: `Hey ${decoded_token_in_the_way_to_obtain_user_details.username} insert record id ` });
+    const decUserDetail = verfier.userDetails(req.headers.authorization);
+    const recId = parseInt(req.params.redflagids);
+    const getData = impData.fetchOneRecord(recId);
+    if (!recId) {
+      return res.status(404).json({ status: 404, message: `Hey ${decUserDetail.username} insert record id ` });
     }
-
-    if (!data) {
-      return res.status(404).json({ status: 404, message: `Hey ${decoded_token_in_the_way_to_obtain_user_details.username} this record with id ${recordId} is not found ` });
+    if (!getData) {
+      return res.status(404).json({ status: 404, message: `Hey ${decUserDetail.username} this record with id ${recId} is not found ` });
     }
-    if (data.userId !== decoded_token_in_the_way_to_obtain_user_details.id) {
-      return res.status(400).json({ status: 400, message: `Hey ${decoded_token_in_the_way_to_obtain_user_details.username} you are not owner of this record with id ${recordId} ` });
+    if (getData.userId !== decUserDetail.id) {
+      return res.status(400).json({ status: 400, message: `Hey ${decUserDetail.username} you are not owner of this record with id ${recId} ` });
     }
-    impData.delete(recordId);
-    return res.status(200).json({ status: 200, message: `Hey ${decoded_token_in_the_way_to_obtain_user_details.username} !! this record with id ${recordId} was deleted Successfully ` });
+    impData.delete(recId);
+    return res.status(200).json({ status: 200, message: `Hey ${decUserDetail.username} !! this record with id ${recId} was deleted Successfully ` });
   },
 };
 export default deleteOneRecord;

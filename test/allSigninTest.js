@@ -15,7 +15,7 @@ describe('my Testing suite', () => {
         expect(response.body).to.be.a('object');
         expect(response.body).to.have.property('status');
         expect(response.body).to.have.property('message');
-        expect(response.body).to.have.property('Token');
+        expect(response.body).to.have.property('token');
         done(error);
       });
   });

@@ -1,7 +1,7 @@
 import chai, { expect } from 'chai';
 import chaiHttp from 'chai-http';
 import app from '../connection';
-import imptokelp from './tokenHelper';
+import imptokelp from '../server/v1/api/helpers/tokenHelper';
 
 chai.use(chaiHttp);
 const router = () => chai.request(app);

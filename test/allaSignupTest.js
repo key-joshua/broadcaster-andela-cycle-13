@@ -66,18 +66,6 @@ describe('my Testing suite', () => {
       });
   });
 
-  it('all users should not be able to signup when he/she used exist email', (done) => {
-    router()
-      .post('/api/v1/auth/signup/')
-      .send(impDB[5])
-      .end((error, response) => {
-        expect(response).to.have.status([409]);
-        expect(response.body).to.have.property('status');
-        expect(response.body).to.have.property('message');
-        done(error);
-      });
-  });
-
   it('all users should not be able to signup when phone number field is empty', (done) => {
     router()
       .post('/api/v1/auth/signup/')
@@ -150,6 +138,29 @@ describe('my Testing suite', () => {
       });
   });
 
+
+  it('all users should be able to signup when when all inserted data are correct', (done) => {
+    router()
+      .post('/api/v1/auth/signup/')
+      .send(impDB[23])
+      .end((error, response) => {
+        expect(response).to.have.status([201]);
+        expect(response.body).to.be.a('object');
+        done(error);
+      });
+  });
+
+  it('all users should be able to signup when when all inserted data are correct', (done) => {
+    router()
+      .post('/api/v1/auth/signup/')
+      .send(impDB[24])
+      .end((error, response) => {
+        expect(response).to.have.status([201]);
+        expect(response.body).to.be.a('object');
+        done(error);
+      });
+  });
+
   it('all users should be able to signup when when all inserted data are correct', (done) => {
     router()
       .post('/api/v1/auth/signup/')
@@ -159,7 +170,19 @@ describe('my Testing suite', () => {
         expect(response.body).to.be.a('object');
         expect(response.body).to.have.property('status');
         expect(response.body).to.have.property('message');
-        expect(response.body).to.have.property('data');
+        expect(response.body).to.have.property('token');
+        done(error);
+      });
+  });
+
+  it('all users should not be able to signup when he/she used exist email', (done) => {
+    router()
+      .post('/api/v1/auth/signup/')
+      .send(impDB[23])
+      .end((error, response) => {
+        expect(response).to.have.status([409]);
+        expect(response.body).to.have.property('status');
+        expect(response.body).to.have.property('message');
         done(error);
       });
   });
