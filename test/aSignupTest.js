@@ -149,7 +149,6 @@ describe('my Testing suite', () => {
       });
   });
 
-
   it('all users should be able to signup when when all inserted data are correct', (done) => {
     router()
       .post('/api/v1/auth/signup/')
@@ -158,6 +157,10 @@ describe('my Testing suite', () => {
         expect(response).to.have.status([201]);
         expect(response.body.status).to.be.equal(201);
         expect(response.body).to.be.a('object');
+        expect(response.body).to.have.property('status');
+        expect(response.body).to.have.property('message');
+        expect(response.body).to.have.property('token');
+        expect(response.body.token).to.be.a('string');
         done(error);
       });
   });
@@ -170,6 +173,10 @@ describe('my Testing suite', () => {
         expect(response).to.have.status([201]);
         expect(response.body.status).to.be.equal(201);
         expect(response.body).to.be.a('object');
+        expect(response.body).to.have.property('status');
+        expect(response.body).to.have.property('message');
+        expect(response.body).to.have.property('token');
+        expect(response.body.token).to.be.a('string');
         done(error);
       });
   });
