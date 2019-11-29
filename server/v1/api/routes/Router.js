@@ -10,8 +10,8 @@ import deleteOneRecord from '../controllers/deleteRecord';
 import updateOneRecord1 from '../controllers/updateComment';
 import updateOneRecord2 from '../controllers/updateLocation';
 import adminCchangeStatus from '../controllers/changesStatus';
-import verfy_admin from '../middlewares/checkAdmin';
-import verfy_user from '../middlewares/checkUser';
+import verfAdmin from '../middlewares/checkAdmin';
+import verfUser from '../middlewares/checkUser';
 import fileImp from '../middlewares/uploadFile';
 
 const authapp = express.Router();
@@ -19,15 +19,15 @@ const authapp = express.Router();
 authapp
   .post('/auth/signin', signinUser.loginUser)
   .post('/auth/signup', registerUser.signupUser)
-  .post('/red-flags', verfy_user, fileImp.allFile, createoneRecord.createOneRecords)
+  .post('/red-flags', verfUser, fileImp.allFile, createoneRecord.createOneRecords)
 
-  .get('/users', verfy_user, retrieveUser.retrieveAllUsers)
-  .get('/red-flags', verfy_user, retrieveRecord.retrieveAllRecords)
-  .get('/red-flags/:redflagid', verfy_user, retrieveoneRecord.retrieveOneRecords)
+  .get('/users', verfUser, retrieveUser.retrieveAllUsers)
+  .get('/red-flags', verfUser, retrieveRecord.retrieveAllRecords)
+  .get('/red-flags/:redflagid', verfUser, retrieveoneRecord.retrieveOneRecords)
 
-  .delete('/red-flags/:redflagids', verfy_user, deleteOneRecord.deleteRecord)
-  .patch('/red-flags/:redflagid/location', verfy_user, updateOneRecord2.updateOneRecordsLocation)
-  .patch('/red-flags/:redflagid/changestatus', verfy_admin, adminCchangeStatus.adminchangeStatusOfOneRecord)
-  .patch('/red-flags/:redflagid/comment', verfy_user, fileImp.allFile, updateOneRecord1.updateOneRecordsComment);
+  .delete('/red-flags/:redflagids', verfUser, deleteOneRecord.deleteRecord)
+  .patch('/red-flags/:redflagid/location', verfUser, updateOneRecord2.updateOneRecordsLocation)
+  .patch('/red-flags/:redflagid/changestatus', verfAdmin, adminCchangeStatus.adminchangeStatusOfOneRecord)
+  .patch('/red-flags/:redflagid/comment', verfUser, fileImp.allFile, updateOneRecord1.updateOneRecordsComment);
 
 export default authapp;

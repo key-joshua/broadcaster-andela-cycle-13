@@ -1,11 +1,10 @@
 import jwt from 'jsonwebtoken';
 import impData from '../models/DB';
 import imphelp from '../helpers/createHelper';
-import verfier from '../helpers/token';
 
 const createSingleRecords = {
   createOneRecords(req, res) {
-    const decUserDetail = verfier.userDetails(req.headers.authorization);
+    const decUserDetail = req.attachedWithInfo;
     const { createdBy, title, type, latitude, longitude, comment } = req.body;
     const createValidate = imphelp.schemaCreate(req.body);
     if (createValidate.error) {

@@ -1,9 +1,8 @@
 import impData from '../models/DB';
-import verfier from '../helpers/token';
 
 const deleteOneRecord = {
   deleteRecord(req, res) {
-    const decUserDetail = verfier.userDetails(req.headers.authorization);
+    const decUserDetail = req.attachedWithInfo;
     const recId = parseInt(req.params.redflagids);
     const getData = impData.fetchOneRecord(recId);
     if (!recId) {

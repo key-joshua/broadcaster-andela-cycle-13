@@ -73,7 +73,7 @@ describe('my Testing suite', () => {
       });
   });
 
-  it('adnin  should not be able to change status of created record without redflagId', (done) => {
+  it('admin  should not be able to change status of created record without redflagId', (done) => {
     let redflagid;
     router()
       .patch(`/api/v1/red-flags/${redflagid}/changestatus`)
@@ -89,7 +89,7 @@ describe('my Testing suite', () => {
       });
   });
 
-  it('adnin  should not be able to change status of created record with wrong redflagId', (done) => {
+  it('admin  should not be able to change status of created record with wrong redflagId', (done) => {
     const redflagid = 100;
     router()
       .patch(`/api/v1/red-flags/${redflagid}/changestatus`)
