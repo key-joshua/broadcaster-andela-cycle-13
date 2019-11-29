@@ -1,9 +1,8 @@
 import impData from '../models/DB';
-import verfier from '../helpers/token';
 
 const updateSingleRecords = {
   updateOneRecordsComment(req, res) {
-    const decUserData = verfier.userDetails(req.headers.authorization);
+    const decUserData = req.attachedWithInfo;
     const { createdBy, title, type, latitude, longitude, comment } = req.body;
 
     const recodId = parseInt(req.params.redflagid);

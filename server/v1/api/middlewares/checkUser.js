@@ -2,7 +2,8 @@ import jwt from 'jsonwebtoken';
 
 const verfUser = (req, res, next) => {
   try {
-    jwt.verify(req.headers.authorization, process.env.SECRET_KEY);
+    const decoded = jwt.verify(req.headers.authorization, process.env.SECRET_KEY);
+    req.attachedWithInfo = decoded;
     next();
   } catch (error) {
     return res.status(401).json({

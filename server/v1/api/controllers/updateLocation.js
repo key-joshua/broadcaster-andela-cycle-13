@@ -1,9 +1,8 @@
 import impData from '../models/DB';
-import verfier from '../helpers/token';
 
 const updateSingleRecords = {
   updateOneRecordsLocation(req, res) {
-    const decUserData = verfier.userDetails(req.headers.authorization);
+    const decUserData = req.attachedWithInfo;
     const userRecId = parseInt(req.params.redflagid);
     const userRecData = impData.fetchOneRecord(userRecId);
 

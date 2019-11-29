@@ -1,10 +1,8 @@
 import impData from '../models/DB';
-import verfier from '../helpers/token';
 
 const retrieveSingleRecords = {
   retrieveOneRecords(req, res) {
-    const decUserData = verfier.userDetails(req.headers.authorization);
-
+    const decUserData = req.attachedWithInfo;
     const records = parseInt(req.params.redflagid);
     if (!records) {
       return res.status(404).json({ status: 404, message: `Hey ${decUserData.username} insert record id ` });

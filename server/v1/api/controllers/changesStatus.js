@@ -1,9 +1,8 @@
 import impData from '../models/DB';
-import verfier from '../helpers/token';
 
 const changeStatusOfSingleRecords = {
   adminchangeStatusOfOneRecord(req, res) {
-    const decUserData = verfier.userDetails(req.headers.authorization);
+    const decUserData = req.attachedWithInfos;
     const recordId = parseInt(req.params.redflagid);
     const takeData = impData.fetchOneRecord(recordId);
 
