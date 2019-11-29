@@ -1,11 +1,10 @@
-// import jwt from 'jsonwebtoken';
-// import dotenv from 'dotenv';
-// dotenv.config();
+import jwt from 'jsonwebtoken';
 
-// const dataFromToken = (header) =>{
-//     const token = header;
-//     const extractedData = jwt.verify(token, process.env.TOKEN_KEY);
-//     return extractedData;
-// }
+class TokHelp {
+  userDetails(fromHeader) {
+    return this.decodedToken = jwt.verify(fromHeader, process.env.SECRET_KEY);
+  }
+}
 
-// export default {dataFromToken}
+const expTokHelp = new TokHelp();
+export default expTokHelp;

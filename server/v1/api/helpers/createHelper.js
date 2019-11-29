@@ -1,14 +1,13 @@
+import Joi from '@hapi/joi';
+
 class Help {
-  check_title_if_is_empty(title) {
-    return this.empty_title = !title;
-  }
-
-  check_type_if_is_empty(type) {
-    return this.empty_type = !type;
-  }
-
-  check_comment_if_is_empty(comment) {
-    return this.empty_type = !comment;
+  schemaCreate(dataToValidate) {
+    const recordSchema = {
+      title: Joi.string().required(),
+      type: Joi.string().required(),
+      comment: Joi.string().required(),
+    };
+    return Joi.validate(dataToValidate, recordSchema);
   }
 
   constructor() {

@@ -11,20 +11,18 @@ const usersDB = [
   { firstname: 'Melinda', lastname: 'jessica', username: 'jessweet', email: 'jessica@gmail.com', phone: '+250788819555', password: 'qwerty' },
   { firstname: 'Melinda', lastname: 'jessica', username: 'jessweet', email: 'jessica@gmail.com', phone: '+250788819555', password: 'qwerty123' },
   { firstname: 'Melinda', lastname: 'jessica', username: 'jessweet', email: 'jessica@gmail.com', phone: '+250788819555', password: 'qwerty@123' },
-  { firstname: 'Melinda', lastname: 'jessica', username: 'jessweet', email: 'jessica@gmail.com', phone: '+250788819555', password: 'jessica@123' },
-
-  { email: 'dfhbdfhbdfh@gmail.com', password: 'jessica@123' },
-  { email: 'jessy@gmail.com', password: 'asfafafqwewqdq' },
-  { email: 'jessy@gmail.com', password: 'qwerty@122' },
-  { email: 'k.joshua855@gmail.com', password: 'qwerty@000' },
-
+  { firstname: 'Melinda', lastname: 'jessica', username: 'jessweet', email: 'jessica@gmail.com', phone: '+250788819555', password: 'Jessica@123' },
+  { email: 'teddy@gmail.com', password: 'Jessica@123' },
+  { email: 'jessy@gmail.com', password: 'Qwerty@000000' },
+  { email: 'k.joshua855@gmail.com', password: 'Qwerty@000' },
+  { email: 'jessica@gmail@gmail.com', password: 'Jessica@123' },
   { title: 'Imported cars wihout taxes', latitude: '10', longitude: '1.33333333' },
-
   { },
   { title: 'obused girls' },
   { title: 'obused girls', type: 'intervation' },
   { title: 'obused girls', type: 'red-flags', comment: 'this is red-flags' },
   { status: 'resolved' },
-
+  { firstname: 'minani', lastname: 'joshua', username: 'key-joshua', email: 'k.joshua855@gmail.com', phone: '+250789619442', password: 'Qwerty@000' },
+  { firstname: 'moriah', lastname: 'jessica', username: 'Jessy', email: 'jessy@gmail.com', phone: '+250789600000', password: 'Qwerty@122' },
 ];
 export default usersDB;

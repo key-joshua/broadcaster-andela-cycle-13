@@ -22,7 +22,7 @@
       <div class='fl pad1y space-right2'>
         <span class="strong">100% </span>
         <span class="quiet">Statements</span>
-        <span class='fraction'>38/38</span>
+        <span class='fraction'>34/34</span>
       </div>
       <div class='fl pad1y space-right2'>
         <span class="strong">100% </span>
@@ -37,7 +37,7 @@
       <div class='fl pad1y space-right2'>
         <span class="strong">100% </span>
         <span class="quiet">Lines</span>
-        <span class='fraction'>29/29</span>
+        <span class='fraction'>25/25</span>
       </div>
     </div>
     <p class="quiet">
@@ -97,18 +97,10 @@
 <a name='L49'></a><a href='#L49'>49</a>
 <a name='L50'></a><a href='#L50'>50</a>
 <a name='L51'></a><a href='#L51'>51</a>
-<a name='L52'></a><a href='#L52'>52</a>
-<a name='L53'></a><a href='#L53'>53</a>
-<a name='L54'></a><a href='#L54'>54</a>
-<a name='L55'></a><a href='#L55'>55</a>
-<a name='L56'></a><a href='#L56'>56</a></td><td class="line-coverage quiet"><span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-yes">1x</span>
+<a name='L52'></a><a href='#L52'>52</a></td><td class="line-coverage quiet"><span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-yes">6x</span>
 <span class="cline-any cline-yes">6x</span>
 <span class="cline-any cline-yes">6x</span>
 <span class="cline-any cline-yes">6x</span>
@@ -156,30 +148,26 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-neutral">&nbsp;</span></td><td class="text"><pre class="prettyprint lang-js">import dotenv from 'dotenv';
-import jwt from 'jsonwebtoken';
-import impData from '../models/DB';
-import impDataFromToken from '../helpers/token';
+<span class="cline-any cline-neutral">&nbsp;</span></td><td class="text"><pre class="prettyprint lang-js">import impData from '../models/DB';
+import verfier from '../helpers/token';
 &nbsp;
-dotenv.config();
 const updateSingleRecords = {
   updateOneRecordsComment(req, res) {
-    const receive_token_from_header = req.headers.authorization;
-    const decoded_token_in_the_way_to_obtain_user_details = jwt.verify(receive_token_from_header, process.env.SECRET_KEY);
+    const decUserData = verfier.userDetails(req.headers.authorization);
     const { createdBy, title, type, latitude, longitude, comment } = req.body;
 &nbsp;
-    const recordId = parseInt(req.params.redflagid);
-    const data = impData.fetchOneRecord(recordId);
+    const recodId = parseInt(req.params.redflagid);
+    const fetcheData = impData.fetchOneRecord(recodId);
 &nbsp;
-    if (!recordId) {
-      return res.status(404).json({ status: 404, message: `Hey ${decoded_token_in_the_way_to_obtain_user_details.username} insert record id ` });
+    if (!recodId) {
+      return res.status(404).json({ status: 404, message: `Hey ${decUserData.username} insert record id ` });
     }
 &nbsp;
-    if (!data) {
-      return res.status(404).json({ status: 404, message: `Hey ${decoded_token_in_the_way_to_obtain_user_details.username} this record with id ${recordId} is not found ` });
+    if (!fetcheData) {
+      return res.status(404).json({ status: 404, message: `Hey ${decUserData.username} this record with id ${recodId} is not found ` });
     }
-    if (data.userId !== decoded_token_in_the_way_to_obtain_user_details.id) {
-      return res.status(400).json({ status: 400, message: `Hey ${decoded_token_in_the_way_to_obtain_user_details.username} you are not owner of this record with id ${recordId} ` });
+    if (fetcheData.userId !== decUserData.id) {
+      return res.status(400).json({ status: 400, message: `Hey ${decUserData.username} you are not owner of this record with id ${recodId} ` });
     }
 &nbsp;
     let imgs;
@@ -196,7 +184,7 @@ const updateSingleRecords = {
     }
 &nbsp;
     const readyDatas = {
-      userId: decoded_token_in_the_way_to_obtain_user_details.id,
+      userId: decUserData.id,
       createdBy: createdBy,
       title: title,
       type: type,
@@ -206,8 +194,8 @@ const updateSingleRecords = {
       videos: vids,
       comment: comment,
     };
-    const updatedRecord = impData.updateComment(parseInt(req.params.redflagid), readyDatas);
-    return res.status(200).json({ status: 200, message: `Hey ${decoded_token_in_the_way_to_obtain_user_details.username} !! Your record with id ${recordId} was updated Successfully `, updateRecord: updatedRecord });
+    const updateRecord = impData.updateComment(parseInt(req.params.redflagid), readyDatas);
+    return res.status(200).json({ status: 200, message: `Hey ${decUserData.username} !! Your record with id ${recodId} was updated Successfully `, updateRecord: updateRecord });
   },
 };
 export default updateSingleRecords;
@@ -217,7 +205,7 @@ export default updateSingleRecords;
 </div><!-- /wrapper -->
 <div class='footer quiet pad2 space-top1 center small'>
   Code coverage
-  generated by <a href="https://istanbul.js.org/" target="_blank">istanbul</a> at Tue Nov 19 2019 18:21:22 GMT+0200 (Central Africa Time)
+  generated by <a href="https://istanbul.js.org/" target="_blank">istanbul</a> at Thu Nov 28 2019 19:23:34 GMT+0200 (Central Africa Time)
 </div>
 </div>
 <script src="..\..\..\..\..\prettify.js"></script>

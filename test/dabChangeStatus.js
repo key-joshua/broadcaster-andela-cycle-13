@@ -2,7 +2,7 @@ import chai, { expect } from 'chai';
 import chaiHttp from 'chai-http';
 import impDB from './allTestDB';
 import app from '../connection';
-import imptokelp from './tokenHelper';
+import imptokelp from '../server/v1/api/helpers/tokenHelper';
 
 chai.use(chaiHttp);
 const router = () => chai.request(app);
@@ -17,6 +17,7 @@ describe('my Testing suite', () => {
       .send(impDB[22])
       .end((error, response) => {
         expect(response).to.have.status([200]);
+        expect(response.body.status).to.be.equal(200);
         expect(response.body).to.be.a('object');
         expect(response.body).to.have.property('status');
         expect(response.body).to.have.property('message');
@@ -32,6 +33,7 @@ describe('my Testing suite', () => {
       .send(impDB[22])
       .end((error, response) => {
         expect(response).to.have.status([401]);
+        expect(response.body.status).to.be.equal(401);
         expect(response.body).to.be.a('object');
         expect(response.body).to.have.property('status');
         expect(response.body).to.have.property('message');
@@ -45,7 +47,8 @@ describe('my Testing suite', () => {
       .patch(`/api/v1/red-flags/${redflagid}/changestatus`)
       .set('Authorization', userToken)
       .end((error, response) => {
-        expect(response).to.have.status([401]);
+        expect(response).to.have.status([403]);
+        expect(response.body.status).to.be.equal(403);
         expect(response.body).to.be.a('object');
         expect(response.body).to.have.property('status');
         expect(response.body).to.have.property('message');
@@ -61,6 +64,7 @@ describe('my Testing suite', () => {
       .send(impDB[0])
       .end((error, response) => {
         expect(response).to.have.status([200]);
+        expect(response.body.status).to.be.equal(200);
         expect(response.body).to.be.a('object');
         expect(response.body).to.have.property('status');
         expect(response.body).to.have.property('message');
@@ -77,6 +81,7 @@ describe('my Testing suite', () => {
       .send(impDB[22])
       .end((error, response) => {
         expect(response).to.have.status([404]);
+        expect(response.body.status).to.be.equal(404);
         expect(response.body).to.be.a('object');
         expect(response.body).to.have.property('status');
         expect(response.body).to.have.property('message');
@@ -92,6 +97,7 @@ describe('my Testing suite', () => {
       .send(impDB[22])
       .end((error, response) => {
         expect(response).to.have.status([404]);
+        expect(response.body.status).to.be.equal(404);
         expect(response.body).to.be.a('object');
         expect(response.body).to.have.property('status');
         expect(response.body).to.have.property('message');
