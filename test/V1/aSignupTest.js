@@ -1,7 +1,7 @@
 import chai, { expect } from 'chai';
 import chaiHttp from 'chai-http';
 import impDB from './allTestDB';
-import app from '../connection';
+import app from '../../connection';
 
 chai.use(chaiHttp);
 const router = () => chai.request(app);
@@ -12,9 +12,10 @@ describe('my Testing suite', () => {
       .send(impDB[0])
       .end((error, response) => {
         expect(response).to.have.status([400]);
-        expect(response.body.status).to.be.equal(400);
         expect(response.body).to.have.property('status');
+        expect(response.body.status).to.be.equal(400);
         expect(response.body).to.have.property('message');
+        expect(response.body.message).to.be.a('string');
         done(error);
       });
   });
@@ -25,9 +26,10 @@ describe('my Testing suite', () => {
       .send(impDB[1])
       .end((error, response) => {
         expect(response).to.have.status([400]);
-        expect(response.body.status).to.be.equal(400);
         expect(response.body).to.have.property('status');
+        expect(response.body.status).to.be.equal(400);
         expect(response.body).to.have.property('message');
+        expect(response.body.message).to.be.a('string');
         done(error);
       });
   });
@@ -38,9 +40,10 @@ describe('my Testing suite', () => {
       .send(impDB[2])
       .end((error, response) => {
         expect(response).to.have.status([400]);
-        expect(response.body.status).to.be.equal(400);
         expect(response.body).to.have.property('status');
+        expect(response.body.status).to.be.equal(400);
         expect(response.body).to.have.property('message');
+        expect(response.body.message).to.be.a('string');
         done(error);
       });
   });
@@ -51,9 +54,10 @@ describe('my Testing suite', () => {
       .send(impDB[3])
       .end((error, response) => {
         expect(response).to.have.status([400]);
-        expect(response.body.status).to.be.equal(400);
         expect(response.body).to.have.property('status');
+        expect(response.body.status).to.be.equal(400);
         expect(response.body).to.have.property('message');
+        expect(response.body.message).to.be.a('string');
         done(error);
       });
   });
@@ -64,9 +68,10 @@ describe('my Testing suite', () => {
       .send(impDB[4])
       .end((error, response) => {
         expect(response).to.have.status([400]);
-        expect(response.body.status).to.be.equal(400);
         expect(response.body).to.have.property('status');
+        expect(response.body.status).to.be.equal(400);
         expect(response.body).to.have.property('message');
+        expect(response.body.message).to.be.a('string');
         done(error);
       });
   });
@@ -77,9 +82,10 @@ describe('my Testing suite', () => {
       .send(impDB[6])
       .end((error, response) => {
         expect(response).to.have.status([400]);
-        expect(response.body.status).to.be.equal(400);
         expect(response.body).to.have.property('status');
+        expect(response.body.status).to.be.equal(400);
         expect(response.body).to.have.property('message');
+        expect(response.body.message).to.be.a('string');
         done(error);
       });
   });
@@ -90,9 +96,10 @@ describe('my Testing suite', () => {
       .send(impDB[7])
       .end((error, response) => {
         expect(response).to.have.status([400]);
-        expect(response.body.status).to.be.equal(400);
         expect(response.body).to.have.property('status');
+        expect(response.body.status).to.be.equal(400);
         expect(response.body).to.have.property('message');
+        expect(response.body.message).to.be.a('string');
         done(error);
       });
   });
@@ -103,9 +110,10 @@ describe('my Testing suite', () => {
       .send(impDB[8])
       .end((error, response) => {
         expect(response).to.have.status([400]);
-        expect(response.body.status).to.be.equal(400);
         expect(response.body).to.have.property('status');
+        expect(response.body.status).to.be.equal(400);
         expect(response.body).to.have.property('message');
+        expect(response.body.message).to.be.a('string');
         done(error);
       });
   });
@@ -116,9 +124,10 @@ describe('my Testing suite', () => {
       .send(impDB[9])
       .end((error, response) => {
         expect(response).to.have.status([400]);
-        expect(response.body.status).to.be.equal(400);
         expect(response.body).to.have.property('status');
+        expect(response.body.status).to.be.equal(400);
         expect(response.body).to.have.property('message');
+        expect(response.body.message).to.be.a('string');
         done(error);
       });
   });
@@ -129,9 +138,10 @@ describe('my Testing suite', () => {
       .send(impDB[10])
       .end((error, response) => {
         expect(response).to.have.status([400]);
-        expect(response.body.status).to.be.equal(400);
         expect(response.body).to.have.property('status');
+        expect(response.body.status).to.be.equal(400);
         expect(response.body).to.have.property('message');
+        expect(response.body.message).to.be.a('string');
         done(error);
       });
   });
@@ -142,9 +152,10 @@ describe('my Testing suite', () => {
       .send(impDB[11])
       .end((error, response) => {
         expect(response).to.have.status([400]);
-        expect(response.body.status).to.be.equal(400);
         expect(response.body).to.have.property('status');
+        expect(response.body.status).to.be.equal(400);
         expect(response.body).to.have.property('message');
+        expect(response.body.message).to.be.a('string');
         done(error);
       });
   });
@@ -155,10 +166,11 @@ describe('my Testing suite', () => {
       .send(impDB[23])
       .end((error, response) => {
         expect(response).to.have.status([201]);
-        expect(response.body.status).to.be.equal(201);
         expect(response.body).to.be.a('object');
         expect(response.body).to.have.property('status');
+        expect(response.body.status).to.be.equal(201);
         expect(response.body).to.have.property('message');
+        expect(response.body.message).to.be.a('string');
         expect(response.body).to.have.property('token');
         expect(response.body.token).to.be.a('string');
         done(error);
@@ -171,10 +183,11 @@ describe('my Testing suite', () => {
       .send(impDB[24])
       .end((error, response) => {
         expect(response).to.have.status([201]);
-        expect(response.body.status).to.be.equal(201);
         expect(response.body).to.be.a('object');
         expect(response.body).to.have.property('status');
+        expect(response.body.status).to.be.equal(201);
         expect(response.body).to.have.property('message');
+        expect(response.body.message).to.be.a('string');
         expect(response.body).to.have.property('token');
         expect(response.body.token).to.be.a('string');
         done(error);
@@ -187,10 +200,11 @@ describe('my Testing suite', () => {
       .send(impDB[12])
       .end((error, response) => {
         expect(response).to.have.status([201]);
-        expect(response.body.status).to.be.equal(201);
         expect(response.body).to.be.a('object');
         expect(response.body).to.have.property('status');
+        expect(response.body.status).to.be.equal(201);
         expect(response.body).to.have.property('message');
+        expect(response.body.message).to.be.a('string');
         expect(response.body).to.have.property('token');
         expect(response.body.token).to.be.a('string');
         done(error);
@@ -203,9 +217,10 @@ describe('my Testing suite', () => {
       .send(impDB[23])
       .end((error, response) => {
         expect(response).to.have.status([409]);
-        expect(response.body.status).to.be.eql(409);
         expect(response.body).to.have.property('status');
+        expect(response.body.status).to.be.eql(409);
         expect(response.body).to.have.property('message');
+        expect(response.body.message).to.be.a('string');
         done(error);
       });
   });

@@ -2,8 +2,7 @@ import express from 'express';
 import dotenv from 'dotenv';
 import swaggerUi from 'swagger-ui-express';
 import apiDocumentation from './swagger.json';
-import authapp from './server/v1/api/routes/Router';
-
+import authapp from './server/V1/api/routes/Router';
 
 dotenv.config();
 const app = express();

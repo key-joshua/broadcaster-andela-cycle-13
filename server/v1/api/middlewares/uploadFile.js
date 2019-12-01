@@ -4,7 +4,7 @@ class Filelp {
   constructor() {
     this.storage = multer.diskStorage({
       destination: (req, file, cb) => {
-        cb(null, 'server/v1/api/models/uploadedFiles/');
+        cb(null, 'server/V1/api/models/uploadedFiles/');
       },
       filename: (req, file, cb) => {
         cb(null, file.originalname);
