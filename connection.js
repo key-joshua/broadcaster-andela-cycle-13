@@ -4,7 +4,6 @@ import swaggerUi from 'swagger-ui-express';
 import apiDocumentation from './swagger.json';
 import authapp from './server/v1/api/routes/Router';
 
-
 dotenv.config();
 const app = express();
 app.use(express.urlencoded({ extended: true }));

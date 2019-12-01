@@ -1,8 +1,8 @@
 import chai, { expect } from 'chai';
 import chaiHttp from 'chai-http';
 import impDB from './allTestDB';
-import app from '../connection';
-import imptokelp from '../server/v1/api/helpers/tokenHelper';
+import app from '../../connection';
+import imptokelp from '../../server/v1/api/helpers/tokenHelper';
 
 chai.use(chaiHttp);
 const router = () => chai.request(app);
@@ -17,10 +17,11 @@ describe('my Testing suite', () => {
       .set('Authorization', userToken)
       .end((error, response) => {
         expect(response).to.have.status([404]);
-        expect(response.body.status).to.be.equal(404);
         expect(response.body).to.be.a('object');
         expect(response.body).to.have.property('status');
+        expect(response.body.status).to.be.equal(404);
         expect(response.body).to.have.property('message');
+        expect(response.body.message).to.be.a('string');
         done(error);
       });
   });
@@ -33,10 +34,11 @@ describe('my Testing suite', () => {
       .send(impDB[0])
       .end((error, response) => {
         expect(response).to.have.status([200]);
-        expect(response.body.status).to.be.equal(200);
         expect(response.body).to.be.a('object');
         expect(response.body).to.have.property('status');
+        expect(response.body.status).to.be.equal(200);
         expect(response.body).to.have.property('message');
+        expect(response.body.message).to.be.a('string');
         expect(response.body).to.have.property('updateRecord');
         done(error);
       });
@@ -50,10 +52,11 @@ describe('my Testing suite', () => {
       .send(impDB[17])
       .end((error, response) => {
         expect(response).to.have.status([404]);
-        expect(response.body.status).to.be.equal(404);
         expect(response.body).to.be.a('object');
         expect(response.body).to.have.property('status');
+        expect(response.body.status).to.be.equal(404);
         expect(response.body).to.have.property('message');
+        expect(response.body.message).to.be.a('string');
         done(error);
       });
   });
@@ -66,10 +69,11 @@ describe('my Testing suite', () => {
       .send(impDB[17])
       .end((error, response) => {
         expect(response).to.have.status([400]);
-        expect(response.body.status).to.be.equal(400);
         expect(response.body).to.be.a('object');
         expect(response.body).to.have.property('status');
+        expect(response.body.status).to.be.equal(400);
         expect(response.body).to.have.property('message');
+        expect(response.body.message).to.be.a('string');
         done(error);
       });
   });
@@ -86,10 +90,11 @@ describe('my Testing suite', () => {
       .field('comment', 'test')
       .end((error, response) => {
         expect(response).to.have.status([200]);
-        expect(response.body.status).to.be.equal(200);
         expect(response.body).to.be.a('object');
         expect(response.body).to.have.property('status');
+        expect(response.body.status).to.be.equal(200);
         expect(response.body).to.have.property('message');
+        expect(response.body.message).to.be.a('string');
         expect(response.body).to.have.property('updateRecord');
         done(error);
       });
@@ -108,10 +113,11 @@ describe('my Testing suite', () => {
       .attach('videos', 'server/v1/api/models/uploadedFiles/sample.mp4')
       .end((error, response) => {
         expect(response).to.have.status([200]);
-        expect(response.body.status).to.be.equal(200);
         expect(response.body).to.be.a('object');
         expect(response.body).to.have.property('status');
+        expect(response.body.status).to.be.equal(200);
         expect(response.body).to.have.property('message');
+        expect(response.body.message).to.be.a('string');
         expect(response.body).to.have.property('updateRecord');
         done(error);
       });
