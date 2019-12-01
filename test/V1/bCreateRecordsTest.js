@@ -2,7 +2,7 @@ import chai, { expect } from 'chai';
 import chaiHttp from 'chai-http';
 import app from '../../connection';
 import impDB from './allTestDB';
-import imptokelp from '../../server/V1/api/helpers/tokenHelper';
+import imptokelp from '../../server/v1/api/helpers/tokenHelper';
 
 chai.use(chaiHttp);
 const router = () => chai.request(app);
@@ -89,8 +89,8 @@ describe('my Testing suite', () => {
       .field('title', 'Bad road')
       .field('type', 'intervation')
       .field('comment', 'testo')
-      .attach('images', 'server/V1/api/models/uploadedFiles/imga.png')
-      .attach('videos', 'server/V1/api/models/uploadedFiles/sample.mp4')
+      .attach('images', 'server/v1/api/models/uploadedFiles/imga.png')
+      .attach('videos', 'server/v1/api/models/uploadedFiles/sample.mp4')
       .end((error, response) => {
         expect(response).to.have.status([201]);
         expect(response.body.status).to.be.equal(201);
@@ -112,8 +112,8 @@ describe('my Testing suite', () => {
       .field('title', 'obused girls')
       .field('type', 'red-flags')
       .field('comment', 'test')
-      .attach('images', 'server/V1/api/models/uploadedFiles/imga.png')
-      .attach('videos', 'server/V1/api/models/uploadedFiles/sample.mp4')
+      .attach('images', 'server/v1/api/models/uploadedFiles/imga.png')
+      .attach('videos', 'server/v1/api/models/uploadedFiles/sample.mp4')
       .end((error, response) => {
         expect(response).to.have.status([201]);
         expect(response.body).to.be.a('object');
@@ -134,8 +134,8 @@ describe('my Testing suite', () => {
       .field('title', 'obused girls')
       .field('type', 'red-flags')
       .field('comment', 'test')
-      .attach('images', 'server/V1/api/models/uploadedFiles/imga.png')
-      .attach('videos', 'server/V1/api/models/uploadedFiles/sample.mp4')
+      .attach('images', 'server/v1/api/models/uploadedFiles/imga.png')
+      .attach('videos', 'server/v1/api/models/uploadedFiles/sample.mp4')
       .end((error, response) => {
         expect(response).to.have.status([201]);
         expect(response.body).to.be.a('object');
@@ -156,8 +156,8 @@ describe('my Testing suite', () => {
       .field('title', 'obused girls')
       .field('type', 'red-flags')
       .field('comment', 'test')
-      .attach('images', 'server/V1/api/models/uploadedFiles/imga.png')
-      .attach('videos', 'server/V1/api/models/uploadedFiles/sample.mp4')
+      .attach('images', 'server/v1/api/models/uploadedFiles/imga.png')
+      .attach('videos', 'server/v1/api/models/uploadedFiles/sample.mp4')
       .end((error, response) => {
         expect(response).to.have.status([201]);
         expect(response.body).to.be.a('object');
@@ -178,8 +178,8 @@ describe('my Testing suite', () => {
       .field('title', 'obused girls')
       .field('type', 'red-flags')
       .field('comment', 'test')
-      .attach('images', 'server/V1/api/models/uploadedFiles/imga.png')
-      .attach('videos', 'server/V1/api/models/uploadedFiles/sample.mp4')
+      .attach('images', 'server/v1/api/models/uploadedFiles/imga.png')
+      .attach('videos', 'server/v1/api/models/uploadedFiles/sample.mp4')
       .end((error, response) => {
         expect(response).to.have.status([201]);
         expect(response.body).to.be.a('object');

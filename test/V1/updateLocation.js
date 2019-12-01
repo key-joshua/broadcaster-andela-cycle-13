@@ -2,7 +2,7 @@ import chai, { expect } from 'chai';
 import chaiHttp from 'chai-http';
 import impDB from './allTestDB';
 import app from '../../connection';
-import imptokelp from '../../server/V1/api/helpers/tokenHelper';
+import imptokelp from '../../server/v1/api/helpers/tokenHelper';
 
 chai.use(chaiHttp);
 const router = () => chai.request(app);
