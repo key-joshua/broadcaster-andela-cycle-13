@@ -25,6 +25,13 @@ const createSingleRecords = {
           vids = vidsPath.join(',  ');
         }
       }
+      const chekType = imphelp.checkType(type);
+      if (chekType) {
+        return res.status(400).json({
+          status: 400,
+          message: `Hey ${decUserDetail.username} record type should be red-flags or intervetion` });
+      }
+
       const readyDatas = {
         userId: decUserDetail.id,
         createdBy: createdBy || decUserDetail.username,

@@ -59,13 +59,35 @@ describe('my Testing suite', () => {
       });
   });
 
+  it('users should be able to create record used wrong record type', (done) => {
+    router()
+      .post('/api/v1/red-flags/')
+      .set('Authorization', adminToken)
+      .set('Content-Type', 'application/x-www-form-urlencoded')
+      .field('title', 'Bad road')
+      .field('type', 'redflags')
+      .field('comment', 'testo')
+      .attach('images', 'server/v1/api/models/uploadedFiles/imga.png')
+      .attach('videos', 'server/v1/api/models/uploadedFiles/sample.mp4')
+      .end((error, response) => {
+        expect(response).to.have.status([400]);
+        expect(response.body).to.be.a('object');
+        expect(response.body).to.have.property('status');
+        expect(response.body.status).to.be.equal(400);
+        expect(response.body).to.have.property('message');
+        expect(response.body.message).to.be.a('string');
+        done(error);
+      });
+  });
+
+
   it('users should be able to create record when provide token', (done) => {
     router()
       .post('/api/v1/red-flags/')
       .set('Authorization', userToken)
       .set('Content-Type', 'application/x-www-form-urlencoded')
       .field('title', 'obused girls')
-      .field('type', 'red-flags')
+      .field('type', 'redflag')
       .field('comment', 'test')
       .attach('images')
       .attach('videos')
@@ -87,7 +109,7 @@ describe('my Testing suite', () => {
       .set('Authorization', adminToken)
       .set('Content-Type', 'application/x-www-form-urlencoded')
       .field('title', 'Bad road')
-      .field('type', 'intervation')
+      .field('type', 'intervetion')
       .field('comment', 'testo')
       .attach('images', 'server/v1/api/models/uploadedFiles/imga.png')
       .attach('videos', 'server/v1/api/models/uploadedFiles/sample.mp4')
@@ -110,7 +132,7 @@ describe('my Testing suite', () => {
       .set('Authorization', adminToken)
       .set('Content-Type', 'application/x-www-form-urlencoded')
       .field('title', 'obused girls')
-      .field('type', 'red-flags')
+      .field('type', 'redflag')
       .field('comment', 'test')
       .attach('images', 'server/v1/api/models/uploadedFiles/imga.png')
       .attach('videos', 'server/v1/api/models/uploadedFiles/sample.mp4')
@@ -132,7 +154,7 @@ describe('my Testing suite', () => {
       .set('Authorization', userToken)
       .set('Content-Type', 'application/x-www-form-urlencoded')
       .field('title', 'obused girls')
-      .field('type', 'red-flags')
+      .field('type', 'redflag')
       .field('comment', 'test')
       .attach('images', 'server/v1/api/models/uploadedFiles/imga.png')
       .attach('videos', 'server/v1/api/models/uploadedFiles/sample.mp4')
@@ -154,7 +176,7 @@ describe('my Testing suite', () => {
       .set('Authorization', userToken)
       .set('Content-Type', 'application/x-www-form-urlencoded')
       .field('title', 'obused girls')
-      .field('type', 'red-flags')
+      .field('type', 'redflag')
       .field('comment', 'test')
       .attach('images', 'server/v1/api/models/uploadedFiles/imga.png')
       .attach('videos', 'server/v1/api/models/uploadedFiles/sample.mp4')
@@ -176,7 +198,7 @@ describe('my Testing suite', () => {
       .set('Authorization', userToken)
       .set('Content-Type', 'application/x-www-form-urlencoded')
       .field('title', 'obused girls')
-      .field('type', 'red-flags')
+      .field('type', 'redflag')
       .field('comment', 'test')
       .attach('images', 'server/v1/api/models/uploadedFiles/imga.png')
       .attach('videos', 'server/v1/api/models/uploadedFiles/sample.mp4')
