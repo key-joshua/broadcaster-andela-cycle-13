@@ -94,6 +94,23 @@ describe('my Testing suite', () => {
       });
   });
 
+  it('admin  should not be able to change status used wrong status', (done) => {
+    const redflagid = 3;
+    router()
+      .patch(`/api/v1/red-flags/${redflagid}/changestatus`)
+      .set('Authorization', adminToken)
+      .send(impDB[25])
+      .end((error, response) => {
+        expect(response).to.have.status([400]);
+        expect(response.body).to.be.a('object');
+        expect(response.body).to.have.property('status');
+        expect(response.body.status).to.be.equal(400);
+        expect(response.body).to.have.property('message');
+        expect(response.body.message).to.be.a('string');
+        done(error);
+      });
+  });
+
   it('admin  should not be able to change status of created record with wrong redflagId', (done) => {
     const redflagid = 100;
     router()

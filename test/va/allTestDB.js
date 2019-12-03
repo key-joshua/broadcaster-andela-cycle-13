@@ -20,9 +20,10 @@ const usersDB = [
   { },
   { title: 'obused girls' },
   { title: 'obused girls', type: 'intervation' },
-  { title: 'obused girls', type: 'red-flags', comment: 'this is red-flags' },
+  { title: 'obused girls', type: 'redflag', comment: 'this is red-flags' },
   { status: 'resolved' },
   { firstname: 'minani', lastname: 'joshua', username: 'key-joshua', email: 'k.joshua855@gmail.com', phone: '+250789619442', password: 'Qwerty@000' },
   { firstname: 'moriah', lastname: 'jessica', username: 'Jessy', email: 'jessy@gmail.com', phone: '+250789600000', password: 'Qwerty@122' },
+  { status: 'resolveds' },
 ];
 export default usersDB;
