@@ -103,6 +103,26 @@ class Records {
     return res.status(200).json({ status: 200, message: `Hey ${req.attachedWithInfo.username} !! Your record with id ${(parseInt(req.params.redflagid))} was updated Successfully `, data: updateRecord });
   }
 
+  async updateLocation(req, res) {
+    const userRecData = await impData.fetchOneRecord((parseInt(req.params.redflagid)));
+    if (!(parseInt(req.params.redflagid))) {
+      return res.status(404).json({ status: 404, message: `Hey ${req.attachedWithInfo.username} insert record id ` });
+    }
+    if (userRecData.length === 0) {
+      return res.status(404).json({ status: 404, message: `Hey ${req.attachedWithInfo.username} this record with id ${(parseInt(req.params.redflagid))} is not found ` });
+    }
+    if (userRecData[0].userid !== req.attachedWithInfo.id) {
+      return res.status(400).json({ status: 400, message: `Hey ${req.attachedWithInfo.username} you are not owner of this record with id ${(parseInt(req.params.redflagid))} ` });
+    }
+    const updateLocation = {
+      latitude: req.body.latitude || userRecData[0].latitude,
+      longitude: req.body.longitude || userRecData[0].longitude,
+    };
+    const updatRecord = await impData.updateLocation(updateLocation, parseInt(req.params.redflagid));
+    return res.status(200).json({ status: 200, message: `Hey ${req.attachedWithInfo.username} !! Your record with id ${(parseInt(req.params.redflagid))} was updated Successfully `, data: updatRecord });
+  }
+
+
 
 }
 const expRecords = new Records();
