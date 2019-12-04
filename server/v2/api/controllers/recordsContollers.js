@@ -59,6 +59,12 @@ class Records {
     return res.status(200).json({ status: 200, message: `Hey ${req.attachedWithInfo.username} !! Hope record with id ${(parseInt(req.params.redflagid))} was retrieved Successfully `, data: data });
   }
 
+  async findAllRecord(req, res) {
+    const datas = await impData.fetchAllRecords();
+    return res.status(200).json({ status: 200, message: `Hey ${req.attachedWithInfo.username} !! Hope all records were retrieved Successfully `, data: datas });
+  }
+
+
 }
 const expRecords = new Records();
 export default expRecords;
