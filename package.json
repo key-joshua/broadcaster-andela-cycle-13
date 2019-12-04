@@ -5,8 +5,12 @@
   "main": "connection.js",
   "scripts": {
     "test": "nyc mocha --exit --require @babel/register --require babel-polyfill ./test/va/*.js --timeout 50000",
-    "createTable": "node --require @babel/register --require babel-polyfill ./server/v2/api/models/database/createTableQueries.js",
-    "dropTable": "node --require @babel/register --require babel-polyfill ./server/v2/api/models/database/dropTableQueries.js",
+    "get_connected_to_database": "nodemon --exec babel-node ./server/v2/api/config/connect_db.js",
+    "created_schemas": "nodemon --exec babel-node ./server/v2/api/models/database/schema.js",
+    "created_tables": "nodemon --exec babel-node ./server/v2/api/models/database/table.js",
+    "recoverTest": "babel-node ./server/v2/api/models/database/delete_record.js",
+    "insert_table": "nodemon --exec babel-node ./server/v2/api/models/database/insert_tb.js",
+    "drope_table": "nodemon --exec babel-node ./server/v2/api/models/database/drop_table.js",
     "coveralls": "nyc --reporter=lcov --reporter=text-lcov npm test | coveralls",
     "server": "nodemon --exec babel-node connection.js",
     "start": "babel-node connection.js",
@@ -50,7 +54,6 @@
     "multer": "^1.4.2",
     "nodemailer": "^6.3.1",
     "nodemon": "^1.19.1",
-    "npm-run-series": "^1.0.1",
     "nyc": "^14.1.1",
     "pg": "^7.12.1",
     "swagger-ui-express": "^4.1.1"
