@@ -11,6 +11,7 @@ recordApp
   .get('/red-flags/:redflagid', verfUser, imprecordRoute.findRecord)
   .patch('/red-flags/:redflagid/comment', verfUser, fileImp.allFile, imprecordRoute.updateComment)
   .patch('/red-flags/:redflagid/location', verfUser, imprecordRoute.updateLocation)
+  .patch('/red-flags/:redflagid/changestatus', verfAdmin, imprecordRoute.updateStatus)
   .delete('/red-flags/:redflagids', verfUser, imprecordRoute.destroyRecord);
 
 export default recordApp;
