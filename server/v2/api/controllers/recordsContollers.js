@@ -64,6 +64,45 @@ class Records {
     return res.status(200).json({ status: 200, message: `Hey ${req.attachedWithInfo.username} !! Hope all records were retrieved Successfully `, data: datas });
   }
 
+  async updateComment(req, res) {
+    const { createdBy, title, type, latitude, longitude, comment } = req.body;
+    const fetcheData = await impData.fetchOneRecord((parseInt(req.params.redflagid)));
+    if (!(parseInt(req.params.redflagid))) {
+      return res.status(404).json({ status: 404, message: `Hey ${req.attachedWithInfo.username} insert record id ` });
+    }
+    if (fetcheData.length === 0) {
+      return res.status(404).json({ status: 404, message: `Hey ${req.attachedWithInfo.username} this record with id ${(parseInt(req.params.redflagid))} is not found ` });
+    }
+    if (fetcheData[0].userid !== req.attachedWithInfo.id) {
+      return res.status(400).json({ status: 400, message: `Hey ${req.attachedWithInfo.username} you are not owner of this record with id ${(parseInt(req.params.redflagid))} ` });
+    }
+    let imgs;
+    let vids;
+    if (req.files) {
+      if (req.files.images) {
+        const imgsPath = req.files.images.map(({ path }) => path);
+        imgs = imgsPath.join(',  ');
+      }
+      if (req.files.videos) {
+        const vidsPath = req.files.videos.map(({ path }) => path);
+        vids = vidsPath.join(',  ');
+      }
+    }
+    const readyDatas = {
+      userId: req.attachedWithInfo.id,
+      createdBy: createdBy || fetcheData[0].createdby,
+      title: title || fetcheData[0].title,
+      type: type || fetcheData[0].type,
+      latitude: latitude || fetcheData[0].latitude,
+      longitude: longitude || fetcheData[0].longitude,
+      images: imgs || fetcheData[0].images,
+      videos: vids || fetcheData[0].videos,
+      comment: comment || fetcheData[0].comment,
+    };
+    const updateRecord = await impData.updateComment(readyDatas, parseInt(req.params.redflagid));
+    return res.status(200).json({ status: 200, message: `Hey ${req.attachedWithInfo.username} !! Your record with id ${(parseInt(req.params.redflagid))} was updated Successfully `, data: updateRecord });
+  }
+
 
 }
 const expRecords = new Records();
