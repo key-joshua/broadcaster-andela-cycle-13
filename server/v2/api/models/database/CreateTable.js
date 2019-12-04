@@ -34,8 +34,4 @@ CREATE TABLE challenge.dataDB(
   modifiedOn VARCHAR(255) NOT NULL
   );`;
 
-
-const queryString = ` ${dataDBTable} `;
-pool.query(queryString)
-  .then(() => console.log(`Hy Joshua You are Successfully runned this command " ${queryString} " `))
-  .catch((error) => console.log(error));
+export default { userDBTable, dataDBTable };
