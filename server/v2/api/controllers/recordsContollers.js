@@ -122,7 +122,20 @@ class Records {
     return res.status(200).json({ status: 200, message: `Hey ${req.attachedWithInfo.username} !! Your record with id ${(parseInt(req.params.redflagid))} was updated Successfully `, data: updatRecord });
   }
 
-
+  async destroyRecord(req, res) {
+    const getData = await impData.fetchOneRecord((parseInt(req.params.redflagids)));
+    if (!(parseInt(req.params.redflagids))) {
+      return res.status(404).json({ status: 404, message: `Hey ${req.attachedWithInfo.username} insert record id ` });
+    }
+    if (getData.length === 0) {
+      return res.status(404).json({ status: 404, message: `Hey ${req.attachedWithInfo.username} this record with id ${(parseInt(req.params.redflagids))} is not found ` });
+    }
+    if (getData[0].userid !== req.attachedWithInfo.id) {
+      return res.status(400).json({ status: 400, message: `Hey ${req.attachedWithInfo.username} you are not owner of this record with id ${(parseInt(req.params.redflagids))} ` });
+    }
+    await impData.deleteRecord((parseInt(req.params.redflagids)));
+    return res.status(200).json({ status: 200, message: `Hey ${req.attachedWithInfo.username} !! this record with id ${(parseInt(req.params.redflagids))} was deleted Successfully ` });
+  }
 
 }
 const expRecords = new Records();
