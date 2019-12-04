@@ -6,6 +6,7 @@ import fileImp from '../middlewares/uploadFile';
 
 const recordApp = express.Router();
 recordApp
-  .post('/red-flags', verfUser, fileImp.allFile, imprecordRoute.createRecord);
+  .post('/red-flags', verfUser, fileImp.allFile, imprecordRoute.createRecord)
+  .get('/red-flags', verfUser, imprecordRoute.findAllRecord);
 
 export default recordApp;
