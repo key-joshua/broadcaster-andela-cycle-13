@@ -6,12 +6,6 @@ import fileImp from '../middlewares/uploadFile';
 
 const recordApp = express.Router();
 recordApp
-  .post('/red-flags', verfUser, fileImp.allFile, imprecordRoute.createRecord)
-  .get('/red-flags', verfUser, imprecordRoute.findAllRecord)
-  .get('/red-flags/:redflagid', verfUser, imprecordRoute.findRecord)
-  .patch('/red-flags/:redflagid/comment', verfUser, fileImp.allFile, imprecordRoute.updateComment)
-  .patch('/red-flags/:redflagid/location', verfUser, imprecordRoute.updateLocation)
-  .patch('/red-flags/:redflagid/changestatus', verfAdmin, imprecordRoute.updateStatus)
-  .delete('/red-flags/:redflagids', verfUser, imprecordRoute.destroyRecord);
+  .post('/red-flags', verfUser, fileImp.allFile, imprecordRoute.createRecord);
 
 export default recordApp;
