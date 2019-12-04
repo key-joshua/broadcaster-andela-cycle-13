@@ -48,6 +48,17 @@ class Records {
     }
   }
 
+  async findRecord(req, res) {
+    if (!(parseInt(req.params.redflagid))) {
+      return res.status(404).json({ status: 404, message: `Hey ${req.attachedWithInfo.username} insert record id ` });
+    }
+    const data = await impData.fetchOneRecord((parseInt(req.params.redflagid)));
+    if (data.length === 0) {
+      return res.status(404).json({ status: 404, message: `Hey ${req.attachedWithInfo.username} this record with id ${(parseInt(req.params.redflagid))} is not found ` });
+    }
+    return res.status(200).json({ status: 200, message: `Hey ${req.attachedWithInfo.username} !! Hope record with id ${(parseInt(req.params.redflagid))} was retrieved Successfully `, data: data });
+  }
+
 }
 const expRecords = new Records();
 export default expRecords;
