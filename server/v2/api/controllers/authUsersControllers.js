@@ -49,6 +49,11 @@ class Users {
     }
   }
 
+   async getUsers(req, res) {
+    const users = await impData.fetchAllUser();
+    return res.status(200).json({ status: 200, message: `Hey ${req.attachedWithInfo.category} ${req.attachedWithInfo.username} !! Hope all users were retrieved Successfully `, data: users });
+  }
+
 }
 const expUsers = new Users();
 export default expUsers;
