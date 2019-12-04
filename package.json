@@ -4,7 +4,7 @@
   "description": "Corruption is a huge bane to Africa is development African countries must develop novel and  localized solutions that will curb this menace hence the birth of Broadcaster Broadcasterenables any/every citizen to bring any form of corruption to the notice of appropriate authorities and the general public Users can also report on things that need government intervention",
   "main": "connection.js",
   "scripts": {
-    "test": "nyc mocha --exit --require @babel/register --require babel-polyfill ./test/vb/*.js --timeout 50000 && npm run dropTable && npm run createTable",
+    "test": "nyc mocha --exit --require @babel/register --require babel-polyfill ./test/va/*.js --timeout 50000",
     "createTable": "node --require @babel/register --require babel-polyfill ./server/v2/api/models/database/createTableQueries.js",
     "dropTable": "node --require @babel/register --require babel-polyfill ./server/v2/api/models/database/dropTableQueries.js",
     "coveralls": "nyc --reporter=lcov --reporter=text-lcov npm test | coveralls",
