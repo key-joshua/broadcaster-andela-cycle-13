@@ -15,7 +15,6 @@ services:
 
 before_install:
   - psql -c 'create database broadcaster' -U postgres
-  - psql -c 'create schema challenge'
   
 before_script:
   - npm install  

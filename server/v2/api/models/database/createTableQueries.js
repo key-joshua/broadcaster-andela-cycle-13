@@ -1,12 +1,9 @@
 import pool from '../../config/connectionDatabase';
-import createSchemaQueries from './createSchemaQueries';
 import createTableQueries from './createTableQuerie';
 import dataTable from './insertDataQueries';
 import userTable from './insertUsersQueries';
 
 const allQueries = async () => {
-  await pool.query(createSchemaQueries.dropeChallenge);
-  await pool.query(createSchemaQueries.chemaChallenge);
   await pool.query(createTableQueries.userDBTable);
   await pool.query(createTableQueries.dataDBTable);
   await pool.query(userTable.user);

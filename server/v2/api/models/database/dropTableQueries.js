@@ -1,6 +1,6 @@
 import pool from '../../config/connectionDatabase';
 
-const dropTables = 'DROP TABLE IF EXISTS challenge.userDB, challenge.dataDB';
+const dropTables = 'DROP TABLE IF EXISTS userdb, datadb';
 
 const queryString = `${dropTables}`;
 pool.query(queryString)
