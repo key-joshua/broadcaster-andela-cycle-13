@@ -73,8 +73,8 @@ This, It all about what i have been requested (recommanded) in the instructions 
 #### TABLE OF API ENDPOINTS SPECIFICATION AND DESCRIPTION
 
 - Version API using URL versioning starting with the letter “v”. A simple ordinal
-  number would be appropriate and avoid dot notation such as 1.0. So, that why you have to add api/v1 
-  for each route of endpoints you want to access for example: https://broadcaster-andela-cycle-13.herokuapp.com/api/v1/auth/signup/  
+  number would be appropriate and avoid dot notation such as 2.0. So, that why you have to add api/v2
+  for each route of endpoints you want to access for example: https://broadcaster-andela-cycle-13.herokuapp.com/api/v2/auth/signup/  
 
 
 |NO  | VERBS  | ENDPOINTS                            | STATUS   | ACCESS                   | DESCRIPTION                             |

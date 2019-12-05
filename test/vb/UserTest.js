@@ -8,6 +8,7 @@ const router = () => chai.request(app);
 describe('my Testing suite', () => {
   const adminToken = imptokelp.adminCreatedToken;
   const userToken = imptokelp.userCreatedToken;
+  const invalid = imptokelp.invalidToken;
   it('admin should be able to view all users profile', (done) => {
     router()
       .get('/api/v2/users/')
@@ -36,6 +37,21 @@ describe('my Testing suite', () => {
         expect(response.body).to.have.property('message');
         expect(response.body.message).to.be.a('string');
         expect(response.body).to.have.property('data');
+        done(error);
+      });
+  });
+
+  it('users and admin should not be able to view recordds when token invalid', (done) => {
+    router()
+      .get('/api/v2/users/')
+      .set('Authorization', invalid)
+      .end((error, response) => {
+        expect(response).to.have.status([400]);
+        expect(response.body).to.be.a('object');
+        expect(response.body).to.have.property('status');
+        expect(response.body.status).to.be.equal(400);
+        expect(response.body).to.have.property('message');
+        expect(response.body.message).to.be.a('string');
         done(error);
       });
   });
