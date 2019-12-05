@@ -1,8 +1,6 @@
-import pool from '../../config/connect_db';
-
 const userDBTable = `
 DROP TABLE IF EXISTS userDB CASCADE;
-CREATE TABLE challenge.userDB(
+CREATE TABLE userdb(
     id SERIAL PRIMARY KEY,
     category VARCHAR(255) NOT NULL,
     firstname VARCHAR(255) NOT NULL,
@@ -17,7 +15,7 @@ CREATE TABLE challenge.userDB(
 
 const dataDBTable = `
 DROP TABLE IF EXISTS dataDB CASCADE;
-CREATE TABLE challenge.dataDB(
+CREATE TABLE datadb(
   recordId INT NOT NULL,
   userId INT NOT NULL,
   createdBy VARCHAR(255) NOT NULL,

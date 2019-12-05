@@ -59,7 +59,7 @@ describe('my Testing suite', () => {
       });
   });
 
-  it('users should be able to create record used wrong record type', (done) => {
+  it('users should not be able to create record used wrong record type', (done) => {
     router()
       .post('/api/v2/red-flags/')
       .set('Authorization', userToken)
