@@ -18,5 +18,5 @@ const allQueries = async () => {
 
 (async () => {
   await pool.query(allQueries);
-})().catch((error) => console.log(error.message));
+})().catch();
 export default allQueries;
