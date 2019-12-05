@@ -151,23 +151,23 @@ class Records {
     if (ckEmailOnupdateStatus.length === 0) return res.status(400).json({ status: 400, message: 'Invalid token' });
     const updatedRecord = await impData.changeStatus(req.body.status || takeData[0].status, parseInt(req.params.redflagid));
     const userIfo = await impData.fetchOneUser(takeData[0].userid);
-    const transporter = nodemailer.createTransport({
-      host: 'smtp.ethereal.email',
-      port: 587,
-      auth: {
-        user: 'broadcastandelacycle@13',
-        pass: 'Key@07202020',
-      },
-    });
-    const info = await transporter.sendMail({
-      from: 'broadcastandelacycle@13',
-      to: 'k.joshua855@gmail.com',
-      subject: 'Record Status',
-      text: `Hey ${userIfo[0].username} your record was changed to ${req.body.status}`,
-    });
+    // const transporter = nodemailer.createTransport({
+    //   host: 'smtp.ethereal.email',
+    //   port: 587,
+    //   auth: {
+    //     user: 'broadcastandelacycle@13',
+    //     pass: 'Key@07202020',
+    //   },
+    // });
+    // const info = await transporter.sendMail({
+    //   from: 'broadcastandelacycle@13',
+    //   to: 'k.joshua855@gmail.com',
+    //   subject: 'Record Status',
+    //   text: `Hey ${userIfo[0].username} your record was changed to ${req.body.status}`,
+    // });
 
-    console.log('Message sent: %s', info.messageId);
-    console.log('Preview URL: %s', nodemailer.getTestMessageUrl(info));
+    // console.log('Message sent: %s', info.messageId);
+    // console.log('Preview URL: %s', nodemailer.getTestMessageUrl(info));
 
 
     return res.status(200).json({ status: 200, message: `Admin ${req.attachedWithInfos.username} !! You are changed status of this record with id ${(parseInt(req.params.redflagid))} Successfully `, data: updatedRecord });
