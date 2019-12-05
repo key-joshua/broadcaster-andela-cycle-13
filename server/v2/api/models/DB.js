@@ -1,4 +1,4 @@
-import pool from '../config/connect_db';
+import pool from '../config/connectionDatabase';
 
 class StoreData {
   async checkEmaiExist(email) {

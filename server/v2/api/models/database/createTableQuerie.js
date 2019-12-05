@@ -1,5 +1,3 @@
-import pool from '../../config/connect_db';
-
 const userDBTable = `
 DROP TABLE IF EXISTS userDB CASCADE;
 CREATE TABLE challenge.userDB(

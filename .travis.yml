@@ -1,15 +1,26 @@
-if: (type = push AND branch IN (develop, dev)) OR (type = pull_request AND NOT branch =~ /no-ci/)
 language: node_js
+
 node_js:
-  - 'stable'
+  - "stable"
+
 cache:
   directories:
-    - 'node_modules'
+    - "node_modules"
 
+addons:
+  postgresql: "9.6"
+
+services:
+  - postgresql
+
+before_install:
+  - psql -c 'create database broadcaster' -U postgres
+  
 before_script:
   - npm install  
-  
-script: 
+
+script:
   - npm run test
+
 after_success:
-- npm run coveralls
+  - npm run coveralls

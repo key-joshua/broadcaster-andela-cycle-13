@@ -1,6 +1,6 @@
-import pool from '../../config/connect_db';
+import pool from '../../config/connectionDatabase';
 import createSchemaQueries from './createSchemaQueries';
-import createTableQueries from './CreateTable';
+import createTableQueries from './createTableQuerie';
 import dataTable from './insertDataQueries';
 import userTable from './insertUsersQueries';
 
@@ -16,7 +16,7 @@ const allQueries = async () => {
   await pool.query(dataTable.data2);
   await pool.query(dataTable.data3);
   await pool.query(dataTable.data4);
-  console.log('Hy Joshua You are Successfully runned queries');
+  console.log('Hy Joshua You are Successfully Crated Table');
 };
 
 (async () => {
