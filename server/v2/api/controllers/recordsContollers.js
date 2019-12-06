@@ -4,7 +4,6 @@ import imphelp from '../helpers/createHelper';
 
 class Records {
   async createRecord(req, res) {
-    const decUserDetail = req.attachedWithInfo;
     const { createdBy, title, type, latitude, longitude, comment } = req.body;
     const createValidate = imphelp.schemaCreate(req.body);
     if (createValidate.error) {
@@ -29,11 +28,11 @@ class Records {
       if (chekType) {
         return res.status(400).json({
           status: 400,
-          message: `Hey ${decUserDetail.username} record type should be red-flags or intervetion` });
+          message: `${req.attachedWithInfo.username} record type should be red-flags or intervetion` });
       }
       const readyDatas = {
-        userId: decUserDetail.id,
-        createdBy: createdBy || decUserDetail.username,
+        userId: req.attachedWithInfo.id,
+        createdBy: createdBy || req.attachedWithInfo.username,
         title: title,
         type: type,
         latitude: latitude || 'none',
@@ -42,41 +41,46 @@ class Records {
         videos: vids || 'none',
         comment: comment,
       };
+      const ckEmailOncreateRecord = await impData.checkEmaiExist(req.attachedWithInfo.email);
+      if (ckEmailOncreateRecord.length === 0) return res.status(400).json({ status: 400, message: 'Invalid token' });
       const createdRecord = await impData.createRecord(readyDatas);
       const data = await impData.fetchOneRecord(createdRecord[0].recordid);
-      res.status(201).json({ status: 201, message: `Hy ${decUserDetail.username} your record has created successfully on ${imphelp.created}`, data: data });
+      res.status(201).json({ status: 201, message: `${req.attachedWithInfo.username} your record has created successfully on ${imphelp.created}`, data: data });
     }
   }
 
   async findRecord(req, res) {
-    const decUserData = req.attachedWithInfo;
     if (!(parseInt(req.params.redflagid))) {
-      return res.status(404).json({ status: 404, message: `Hey ${decUserData.username} insert record id ` });
+      return res.status(404).json({ status: 404, message: `${req.attachedWithInfo.username} insert record id ` });
     }
+    const ckEmailOnfindRecord = await impData.checkEmaiExist(req.attachedWithInfo.email);
+    if (ckEmailOnfindRecord.length === 0) return res.status(400).json({ status: 400, message: 'Invalid token' });
+
     const data = await impData.fetchOneRecord((parseInt(req.params.redflagid)));
     if (data.length === 0) {
-      return res.status(404).json({ status: 404, message: `Hey ${decUserData.username} this record with id ${(parseInt(req.params.redflagid))} is not found ` });
+      return res.status(404).json({ status: 404, message: `${req.attachedWithInfo.username} this record with id ${(parseInt(req.params.redflagid))} is not found ` });
     }
-    return res.status(200).json({ status: 200, message: `Hey ${decUserData.username} !! Hope record with id ${(parseInt(req.params.redflagid))} was retrieved Successfully `, data: data });
+    return res.status(200).json({ status: 200, message: `${req.attachedWithInfo.username} !! Hope record with id ${(parseInt(req.params.redflagid))} was retrieved Successfully `, data: data });
   }
 
   async findAllRecord(req, res) {
-    const decGetData = req.attachedWithInfo;
+    const ckEmailOnfindAllRecord = await impData.checkEmaiExist(req.attachedWithInfo.email);
+    if (ckEmailOnfindAllRecord.length === 0) return res.status(400).json({ status: 400, message: 'Invalid token' });
     const datas = await impData.fetchAllRecords();
-    return res.status(200).json({ status: 200, message: `Hey ${decGetData.username} !! Hope all records were retrieved Successfully `, data: datas });
+    return res.status(200).json({ status: 200, message: `${req.attachedWithInfo.username} !! Hope all records were retrieved Successfully `, data: datas });
   }
 
   async updateComment(req, res) {
     const { createdBy, title, type, latitude, longitude, comment } = req.body;
     const fetcheData = await impData.fetchOneRecord((parseInt(req.params.redflagid)));
     if (!(parseInt(req.params.redflagid))) {
-      return res.status(404).json({ status: 404, message: `Hey ${req.attachedWithInfo.username} insert record id ` });
+      return res.status(404).json({ status: 404, message: `${req.attachedWithInfo.username} insert record id ` });
     }
     if (fetcheData.length === 0) {
-      return res.status(404).json({ status: 404, message: `Hey ${req.attachedWithInfo.username} this record with id ${(parseInt(req.params.redflagid))} is not found ` });
+      return res.status(404).json({ status: 404, message: `${req.attachedWithInfo.username} this record with id ${(parseInt(req.params.redflagid))} is not found ` });
     }
     if (fetcheData[0].userid !== req.attachedWithInfo.id) {
-      return res.status(400).json({ status: 400, message: `Hey ${req.attachedWithInfo.username} you are not owner of this record with id ${(parseInt(req.params.redflagid))} ` });
+      return res.status(400).json({ status: 400, message: `${req.attachedWithInfo.username} you are not owner of this record with id ${(parseInt(req.params.redflagid))} ` });
     }
     let imgs;
     let vids;
@@ -101,58 +105,62 @@ class Records {
       videos: vids || fetcheData[0].videos,
       comment: comment || fetcheData[0].comment,
     };
+    const ckEmailOnupdateComment = await impData.checkEmaiExist(req.attachedWithInfo.email);
+    if (ckEmailOnupdateComment.length === 0) return res.status(400).json({ status: 400, message: 'Invalid token' });
     const updateRecord = await impData.updateComment(readyDatas, parseInt(req.params.redflagid));
-    return res.status(200).json({ status: 200, message: `Hey ${req.attachedWithInfo.username} !! Your record with id ${(parseInt(req.params.redflagid))} was updated Successfully `, data: updateRecord });
+    return res.status(200).json({ status: 200, message: `${req.attachedWithInfo.username} !! Your record with id ${(parseInt(req.params.redflagid))} was updated Successfully `, data: updateRecord });
   }
 
   async updateLocation(req, res) {
     const userRecData = await impData.fetchOneRecord((parseInt(req.params.redflagid)));
     if (!(parseInt(req.params.redflagid))) {
-      return res.status(404).json({ status: 404, message: `Hey ${req.attachedWithInfo.username} insert record id ` });
+      return res.status(404).json({ status: 404, message: `${req.attachedWithInfo.username} insert record id ` });
     }
     if (userRecData.length === 0) {
-      return res.status(404).json({ status: 404, message: `Hey ${req.attachedWithInfo.username} this record with id ${(parseInt(req.params.redflagid))} is not found ` });
+      return res.status(404).json({ status: 404, message: `${req.attachedWithInfo.username} this record with id ${(parseInt(req.params.redflagid))} is not found ` });
     }
     if (userRecData[0].userid !== req.attachedWithInfo.id) {
-      return res.status(400).json({ status: 400, message: `Hey ${req.attachedWithInfo.username} you are not owner of this record with id ${(parseInt(req.params.redflagid))} ` });
+      return res.status(400).json({ status: 400, message: `${req.attachedWithInfo.username} you are not owner of this record with id ${(parseInt(req.params.redflagid))} ` });
     }
     const updateLocation = {
       latitude: req.body.latitude || userRecData[0].latitude,
       longitude: req.body.longitude || userRecData[0].longitude,
     };
+    const ckEmailOnupdateLocation = await impData.checkEmaiExist(req.attachedWithInfo.email);
+    if (ckEmailOnupdateLocation.length === 0) return res.status(400).json({ status: 400, message: 'Invalid token' });
     const updatRecord = await impData.updateLocation(updateLocation, parseInt(req.params.redflagid));
-    return res.status(200).json({ status: 200, message: `Hey ${req.attachedWithInfo.username} !! Your record with id ${(parseInt(req.params.redflagid))} was updated Successfully `, data: updatRecord });
+    return res.status(200).json({ status: 200, message: `${req.attachedWithInfo.username} !! Your record with id ${(parseInt(req.params.redflagid))} was updated Successfully `, data: updatRecord });
   }
 
   async updateStatus(req, res) {
     const takeData = await impData.fetchOneRecord((parseInt(req.params.redflagid)));
     if (!(parseInt(req.params.redflagid))) {
-      return res.status(404).json({ status: 404, message: `Hey Admin ${req.attachedWithInfos.username} insert record id ` });
+      return res.status(404).json({ status: 404, message: `Admin ${req.attachedWithInfos.username} insert record id ` });
     }
     if (takeData.length === 0) {
-      return res.status(404).json({ status: 404, message: `Hey Admin ${req.attachedWithInfos.username} this record with id ${(parseInt(req.params.redflagid))} is not found ` });
+      return res.status(404).json({ status: 404, message: `Admin ${req.attachedWithInfos.username} this record with id ${(parseInt(req.params.redflagid))} is not found ` });
     }
     const chekStatus = imphelp.checkStatus(req.body.status);
     if (chekStatus) {
       return res.status(400).json({
         status: 400,
-        message: `Hey Admin ${req.attachedWithInfos.username} record status should be under-intervention, resolved or rejected` });
+        message: `Admin ${req.attachedWithInfos.username} record status should be under-intervention, resolved or rejected` });
     }
+    const ckEmailOnupdateStatus = await impData.checkEmaiExist(req.attachedWithInfos.email);
+    if (ckEmailOnupdateStatus.length === 0) return res.status(400).json({ status: 400, message: 'Invalid token' });
     const updatedRecord = await impData.changeStatus(req.body.status || takeData[0].status, parseInt(req.params.redflagid));
     const userIfo = await impData.fetchOneUser(takeData[0].userid);
-    // const useremail = 'k.joshua855@gmail.com';
-    // const password = 'key07202020';
     // const transporter = nodemailer.createTransport({
     //   host: 'smtp.ethereal.email',
     //   port: 587,
     //   auth: {
-    //     user: 'k.joshua855@gmail.com',
-    //     pass: 'key07202020',
+    //     user: 'broadcastandelacycle@13',
+    //     pass: 'Key@07202020',
     //   },
     // });
     // const info = await transporter.sendMail({
-    //   from: 'k.joshua855@gmail.com',
-    //   to: 'k.joshua800@gmail.com',
+    //   from: 'broadcastandelacycle@13',
+    //   to: 'k.joshua855@gmail.com',
     //   subject: 'Record Status',
     //   text: `Hey ${userIfo[0].username} your record was changed to ${req.body.status}`,
     // });
@@ -161,22 +169,24 @@ class Records {
     // console.log('Preview URL: %s', nodemailer.getTestMessageUrl(info));
 
 
-    return res.status(200).json({ status: 200, message: `Hey Admin ${req.attachedWithInfos.username} !! You are changed status of this record with id ${(parseInt(req.params.redflagid))} Successfully `, data: updatedRecord });
+    return res.status(200).json({ status: 200, message: `Admin ${req.attachedWithInfos.username} !! You are changed status of this record with id ${(parseInt(req.params.redflagid))} Successfully `, data: updatedRecord });
   }
 
   async destroyRecord(req, res) {
     const getData = await impData.fetchOneRecord((parseInt(req.params.redflagids)));
     if (!(parseInt(req.params.redflagids))) {
-      return res.status(404).json({ status: 404, message: `Hey ${req.attachedWithInfo.username} insert record id ` });
+      return res.status(404).json({ status: 404, message: `${req.attachedWithInfo.username} insert record id ` });
     }
     if (getData.length === 0) {
-      return res.status(404).json({ status: 404, message: `Hey ${req.attachedWithInfo.username} this record with id ${(parseInt(req.params.redflagids))} is not found ` });
+      return res.status(404).json({ status: 404, message: `${req.attachedWithInfo.username} this record with id ${(parseInt(req.params.redflagids))} is not found ` });
     }
     if (getData[0].userid !== req.attachedWithInfo.id) {
-      return res.status(400).json({ status: 400, message: `Hey ${req.attachedWithInfo.username} you are not owner of this record with id ${(parseInt(req.params.redflagids))} ` });
+      return res.status(400).json({ status: 400, message: `${req.attachedWithInfo.username} you are not owner of this record with id ${(parseInt(req.params.redflagids))} ` });
     }
+    const ckEmailOndestroyRecord = await impData.checkEmaiExist(req.attachedWithInfo.email);
+    if (ckEmailOndestroyRecord.length === 0) return res.status(400).json({ status: 400, message: 'Invalid token' });
     await impData.deleteRecord((parseInt(req.params.redflagids)));
-    return res.status(200).json({ status: 200, message: `Hey ${req.attachedWithInfo.username} !! this record with id ${(parseInt(req.params.redflagids))} was deleted Successfully ` });
+    return res.status(200).json({ status: 200, message: `${req.attachedWithInfo.username} !! this record with id ${(parseInt(req.params.redflagids))} was deleted Successfully ` });
   }
 }
 const expRecords = new Records();

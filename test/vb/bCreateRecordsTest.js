@@ -8,7 +8,7 @@ chai.use(chaiHttp);
 const router = () => chai.request(app);
 describe('my Testing suite', () => {
   const userToken = imptokelp.userCreatedToken;
-  const adminToken = imptokelp.adminCreatedToken;
+  const invalid = imptokelp.invalidToken;
 
 
   it('users should not be able to create record when did not insert title of record', (done) => {
@@ -48,6 +48,21 @@ describe('my Testing suite', () => {
       .post('/api/v2/red-flags/')
       .set('Authorization', userToken)
       .send(impDB[20])
+      .end((error, response) => {
+        expect(response).to.have.status([400]);
+        expect(response.body).to.be.a('object');
+        expect(response.body).to.have.property('status');
+        expect(response.body.status).to.be.equal(400);
+        expect(response.body).to.have.property('message');
+        expect(response.body.message).to.be.a('string');
+        done(error);
+      });
+  });
+
+  it('users and admin should not be able to view recordds when token invalid', (done) => {
+    router()
+      .post('/api/v2/red-flags/')
+      .set('Authorization', invalid)
       .end((error, response) => {
         expect(response).to.have.status([400]);
         expect(response.body).to.be.a('object');
