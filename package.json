@@ -7,10 +7,11 @@
     "testing": "nyc mocha --exit --require @babel/register --require babel-polyfill ./test/vb/*.js --timeout 50000",
     "createTable": "node --require @babel/register --require babel-polyfill ./server/v2/api/models/database/createTableQueries.js",
     "dropTable": "node --require @babel/register --require babel-polyfill ./server/v2/api/models/database/dropTableQueries.js",
-    "test": " npm-run-series createTable testing dropTable createTable",
+    "test": " npm-run-series dropTable createTable testing",
     "coveralls": "nyc --reporter=lcov --reporter=text-lcov npm test | coveralls",
     "server": "nodemon --exec babel-node connection.js",
-    "start": "babel-node connection.js",
+    "starter": "babel-node connection.js",
+    "start": "npm-run-series createTable starter",
     "lint": "eslint"
   },
   "repository": {
