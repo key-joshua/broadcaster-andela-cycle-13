@@ -20,13 +20,6 @@ class Help {
     if (status !== 'under-investigation,' && status !== 'rejected' && status !== 'resolved') { return status; }
   }
 
-  // schemaFakeUrl(dataToValidate) {
-  //   const urlSchema = {
-  //     redflagid: Joi.number(),
-  //   };
-  //   return Joi.validate(dataToValidate, urlSchema);
-  // }
-
   constructor() {
     this.created = new Date().toString();
   }

@@ -53,7 +53,6 @@ class Records {
     if (!(parseInt(req.params.redflagid))) {
       return res.status(404).json({ status: 404, message: `${req.attachedWithInfo.username} insert record id ` });
     }
-
     const ckEmailOnfindRecord = await impData.checkEmaiExist(req.attachedWithInfo.email);
     if (ckEmailOnfindRecord.length === 0) return res.status(400).json({ status: 400, message: 'Invalid token' });
 
