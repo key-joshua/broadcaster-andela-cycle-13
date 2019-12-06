@@ -68,7 +68,7 @@ This, It all about what i have been requested (recommanded) in the instructions 
 
 This, It all about what i have been requested (recommanded) in the instructions to build documentation of all endpoints of project, by using swagger 2.0 right now all endpoints of Application is documented
 
-- [Api Documentation](https://broadcaster-andela-cycle-13.herokuapp.com/api/v1/documentation/)
+- [Api Documentation](https://broadcaster-andela-cycle-13.herokuapp.com/api/v2/documentation/)
 
 #### TABLE OF API ENDPOINTS SPECIFICATION AND DESCRIPTION
 
