@@ -1,12 +1,29 @@
-import pg from 'pg';
+import { Pool } from 'pg';
 import dotenv from 'dotenv';
 
 dotenv.config();
-const isProduction = process.env.NODE_ENV === 'production';
-const connectionString = 'postgresql://postgres:key07202020@localhost:5432/broadcaster';
-const pool = new pg.Pool({
-  connectionString: isProduction ? process.env.DATABASE_URL : connectionString,
-  ssl: isProduction,
-});
 
+let pool = {};
+pool = new Pool({
+  connectionString: 'postgresql://postgres:key07202020@localhost:5432/broadcaster',
+});
+pool.on('connect', () => {
+  console.log('connected to the development db');
+});
+if (process.env.NODE_ENV === 'testing') {
+  pool = new Pool({
+    connectionString: 'postgresql://postgres:key07202020@localhost:5432/broadcaster',
+  });
+  pool.on('connect', () => {
+    console.log('connected to the tests db');
+  });
+}
+if (process.env.NODE_ENV === 'production') {
+  pool = new Pool({
+    connectionString: 'postgresql://postgres:key07202020@localhost:5432/broadcaster',
+  });
+  pool.on('connect', () => {
+    console.log('connected to the production db');
+  });
+}
 export default pool;
