@@ -1,5 +1,4 @@
 const userDBTable = `
-DROP TABLE IF EXISTS userDB CASCADE;
 CREATE TABLE userdb(
     id SERIAL PRIMARY KEY,
     category VARCHAR(255) NOT NULL,
@@ -14,7 +13,6 @@ CREATE TABLE userdb(
   );`;
 
 const dataDBTable = `
-DROP TABLE IF EXISTS dataDB CASCADE;
 CREATE TABLE datadb(
   Id INT NOT NULL,
   userId INT NOT NULL,
