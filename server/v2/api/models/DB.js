@@ -18,7 +18,7 @@ class StoreData {
   }
 
   async createRecord(data) {
-    const textQuery = 'SELECT * FROM datadb WHERE id in(SELECT MAX(id) FROM dataDB);';
+    const textQuery = 'SELECT * FROM datadb WHERE id in(SELECT MAX(id) FROM datadb);';
     const lastRecId = await pool.query(textQuery);
     const { userId, createdBy, title, type, latitude, longitude, images, videos, comment } = data;
     const locationo = `Lat: ${latitude}, Long: ${longitude}`;
