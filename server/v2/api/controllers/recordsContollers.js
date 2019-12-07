@@ -44,7 +44,7 @@ class Records {
       const ckEmailOncreateRecord = await impData.checkEmaiExist(req.attachedWithInfo.email);
       if (ckEmailOncreateRecord.length === 0) return res.status(400).json({ status: 400, message: 'Invalid token' });
       const createdRecord = await impData.createRecord(readyDatas);
-      const data = await impData.fetchOneRecord(createdRecord[0].recordid);
+      const data = await impData.fetchOneRecord(createdRecord[0].eid);
       res.status(201).json({ status: 201, message: `${req.attachedWithInfo.username} your record has created successfully on ${imphelp.created}`, data: data });
     }
   }
