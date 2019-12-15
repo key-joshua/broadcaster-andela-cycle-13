@@ -103,8 +103,6 @@ describe('my Testing suite', () => {
       .field('title', 'Bad road')
       .field('type', 'intervetion')
       .field('comment', 'testo')
-      .attach('images', 'server/v2/api/models/uploadedFiles/hungry.png')
-      .attach('videos', 'server/v2/api/models/uploadedFiles/sample.mp4')
       .end((error, response) => {
         expect(response).to.have.status([201]);
         expect(response.body.status).to.be.equal(201);
