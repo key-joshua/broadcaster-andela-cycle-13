@@ -38,9 +38,9 @@ Before we get started Remember to take  :coffee:   :pizza:  and :dancer:   When 
 
 ## Frontend tools
 
- - Javascript
- - HTML
- - CSS 
+ - Javascript.
+ - HTML.
+ - CSS. 
 
 #### Get into broadcaster UI Template by Visiting Thoses link below
 
@@ -51,11 +51,11 @@ This, It all about what i have been requested (recommanded) in the instructions 
 
 ## Backend tools
 
- - All Neccessary libraries
- - Express JS
- - NodeJs
- - Mocha
- - Chai
+ - All Neccessary libraries.
+ - Express JS.
+ - NodeJs.
+ - Mocha.
+ - Chai.
 
 #### Get into broadcaster Back-end by Visiting Thoses link below
 
