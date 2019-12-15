@@ -127,8 +127,8 @@ describe('my Testing suite', () => {
       .field('title', 'obused girls')
       .field('type', 'red-flags')
       .field('comment', 'test')
-      .attach('images', ' ')
-      .attach('videos', ' ')
+      .attach('images')
+      .attach('videos')
       .end((error, response) => {
         expect(response).to.have.status([200]);
         expect(response.body).to.be.a('object');
