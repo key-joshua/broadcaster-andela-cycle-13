@@ -23,14 +23,14 @@ class Emailhelp {
       to: `${names} <${toEmail}>`,
       subject: 'Record Status Changed',
       text: `Hello ${names}`,
-      html: `<p><h3>Hello ${names}</h3> Your record "${recTitle}"  has changed status to "${recStatus}"</p>`,
+      html: `<p><h3>Hello ${names}</h3> Your record "${recTitle}"  has changed status to "${recStatus}" now</p>`,
     };
 
     await transporter.sendMail(messageObj);
   }
 
   sms(toNum, names, recTitle, recStatus) {
-    const tomessage = `Hello ${names} Your record "${recTitle}"  has changed status to "${recStatus}" `;
+    const tomessage = `Hello ${names} Your record "${recTitle}"  has changed status to "${recStatus}" now `;
     const AfricasTalking = new africastalking({
       apiKey: 'd5db7093d51d9b97b4688d57100dcfd27db4de3176b85a73670686c730b0382f',
       username: 'broadcaster',
