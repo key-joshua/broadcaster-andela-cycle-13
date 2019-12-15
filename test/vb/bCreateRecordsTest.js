@@ -172,8 +172,8 @@ describe('my Testing suite', () => {
       .field('title', 'obused girls')
       .field('type', 'redflag')
       .field('comment', 'test')
-      .attach('images', 'server/v2/api/models/uploadedFiles/hungry.png')
-      .attach('videos', 'server/v2/api/models/uploadedFiles/sample.mp4')
+      .attach('images')
+      .attach('videos')
       .end((error, response) => {
         expect(response).to.have.status([201]);
         expect(response.body).to.be.a('object');
