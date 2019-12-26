@@ -141,7 +141,7 @@ describe('my Testing suite', () => {
       });
   });
 
-  it('users should be able to create record with images and videos when provide token', (done) => {
+  it('users should be able to create record with images and videos when provide user token', (done) => {
     router()
       .post('/api/v2/red-flags/')
       .set('Authorization', userToken)
