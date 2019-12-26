@@ -102,9 +102,12 @@ describe('my Testing suite', () => {
       .patch(`/api/v2/red-flags/${redflagid}/comment`)
       .set('Authorization', userToken)
       .field('Content-Type', 'multipart/form-data')
-      .field('createdBy', 'Milly')
       .field('title', 'obused girls')
-      .field('type', 'red-flags')
+      .field('type', 'redflag')
+      .field('latitude', '23')
+      .field('longitude', '0.111')
+      .attach('images', 'server/v1/api/models/uploadedFiles/imga.png')
+      .attach('videos', 'server/v1/api/models/uploadedFiles/sample.mp4')
       .field('comment', 'test')
       .end((error, response) => {
         expect(response).to.have.status([200]);
@@ -125,10 +128,10 @@ describe('my Testing suite', () => {
       .set('Authorization', userToken)
       .field('Content-Type', 'multipart/form-data')
       .field('title', 'obused girls')
-      .field('type', 'red-flags')
+      .field('type', 'redflag')
+      .field('latitude', '23')
+      .field('longitude', '0.111')
       .field('comment', 'test')
-      .attach('images')
-      .attach('videos')
       .end((error, response) => {
         expect(response).to.have.status([200]);
         expect(response.body).to.be.a('object');

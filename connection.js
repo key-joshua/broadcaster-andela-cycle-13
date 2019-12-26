@@ -2,6 +2,7 @@ import express from 'express';
 import dotenv from 'dotenv';
 import swaggerUi from 'swagger-ui-express';
 import apiDocumentation from './swagger.json';
+// import authapp from './server/v1/api/routes/Router';
 import UserApp from './server/v2/api/routes/usersRoute';
 import recordApp from './server/v2/api/routes/recordsRoute';
 
@@ -9,9 +10,11 @@ dotenv.config();
 const app = express();
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
+// const basePath = '/api/v1';
 const basePath = '/api/v2';
 const docUrl = 'localhost:3000/api/v2/documentation/';
 
+// app.use(basePath, authapp);
 app.use(basePath, UserApp);
 app.use(basePath, recordApp);
 app.use(`${basePath}/documentation`, swaggerUi.serve, swaggerUi.setup(apiDocumentation));

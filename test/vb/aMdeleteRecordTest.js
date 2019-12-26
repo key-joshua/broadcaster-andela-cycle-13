@@ -9,7 +9,7 @@ describe('my Testing suite', () => {
   const userToken = imptokelp.userCreatedToken;
   const invalid = imptokelp.invalidToken;
   it('user should be able to delete record ', (done) => {
-    const redflagids = 5;
+    const redflagids = 1;
     router()
       .delete(`/api/v2/red-flags/${redflagids}`)
       .set('Authorization', userToken)
@@ -55,7 +55,7 @@ describe('my Testing suite', () => {
         done(error);
       });
   });
-  
+
   it('users and admin should not be able to view single record when token invalid', (done) => {
     const redflagids = 2;
     router()

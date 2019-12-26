@@ -15,7 +15,7 @@ describe('my Testing suite', () => {
         expect(response.body.status).to.be.equal(400);
         expect(response.body).to.have.property('message');
         expect(response.body.message).to.be.a('string');
-        expect(response.body).to.have.property('link');
+        expect(response.body).to.have.property('data');
         done(error);
       });
   });
