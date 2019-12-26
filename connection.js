@@ -10,6 +10,7 @@ dotenv.config();
 const app = express();
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
+// const basePath = '/api/v1';
 const basePath = '/api/v2';
 const docUrl = 'localhost:3000/api/v2/documentation/';
 
